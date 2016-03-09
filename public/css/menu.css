@@ -1,0 +1,129 @@
+
+#menu li:hover {
+	background: #333333;
+}
+
+.navigation {
+	width: 100%;
+	margin: 0;
+	
+	list-style: none;  
+	background: #3e78a6;
+
+}
+
+#menu {
+	width: 960px;
+	margin: 0 auto;
+
+}
+
+#menu li
+{
+	float: left;
+	padding: 5px 0px;
+	position: relative;
+	line-height: 0;
+}
+
+#menu  a 
+{
+	float: left;
+	
+	padding: 15px 25px;
+	color: #FFF;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+#menu li:hover > a
+{
+	color: #FFFFFF;
+}
+
+*html #menu li a:hover /* IE6 */
+{
+	color: #fafafa;
+}
+
+#menu li:hover > ul
+{
+	display: block;
+}
+
+/* Sub-menu */
+
+#menu ul
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;    
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    z-index: 99999;    
+    background: #3e78a6 ;
+}
+
+#menu ul ul {
+  top: 0;
+  left: 165px;
+   background: #333333;
+}
+
+#menu ul li
+{
+    float: none;
+    margin: 0;
+    padding: 0;
+    display: block;  
+	border-bottom: 1px solid #999;
+}
+
+
+
+#menu ul a
+{    
+
+	height: 10px;
+	width: 120px;
+	height: auto;
+    line-height: 1;
+    display: block;
+    white-space: nowrap;
+    float: none;
+	text-transform: none;
+}
+
+*html #menu ul a /* IE6 */
+{    
+	height: 10px;
+}
+
+*:first-child+html #menu ul a /* IE7 */
+{    
+	height: 10px;
+}
+
+#menu ul a:hover
+{
+    background: #333333;
+}
+
+
+
+
+/* Clear floated elements */
+#menu:after 
+{
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+
+* html #menu             { zoom: 1; } /* IE6 */
+*:first-child+html #menu { zoom: 1; } /* IE7 */
