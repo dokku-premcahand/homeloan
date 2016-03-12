@@ -27,7 +27,27 @@ class Index extends CI_Controller {
 						$this->session->set_userdata($sessionData);
 						header('Location:'.base_url('home/index'));
 				}else{
+						$this->session->set_flashdata('errorMsg', 'Invalid username or password.');
 						header('Location:'.base_url('index/login'));
+				}
+		}
+
+		public function forgotPassword()
+		{
+				$this->load->view('forgotpassword');
+		}
+
+		public function forgotPasswordEmail()
+		{
+				$emailId = $this->input->post('emailId');
+				$this->load->model('user');
+				$responce = $this->user->forgotPassword($emailId);
+				if($responce == 1){
+						$this->session->set_flashdata('successMsg', 'Password reset link sent to the given emailid.');
+						header('Location:'.base_url('index/forgotPassword'));
+				}else{
+						$this->session->set_flashdata('errorMsg', 'Email Id not registered with us.');
+						header('Location:'.base_url('index/forgotPassword'));
 				}
 		}
 

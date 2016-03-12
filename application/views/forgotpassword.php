@@ -57,11 +57,14 @@
 <div class="login_heading"> <p>Login</p> </div><!-- login_heading -->
 
 <div class="login_wrapper">
+  <div class="successMsg">
+      <?php echo $this->session->flashdata('successMsg'); ?>
+  </div>
   <div class="errorMsg">
       <?php echo $this->session->flashdata('errorMsg'); ?>
   </div>
 
-<form action="<?php echo base_url('index/authenticate') ?>" method="post" class="loginFrm"/>
+<form action="<?php echo base_url('index/forgotPasswordEmail') ?>" method="post" class="forgotpasswordFrm"/>
   <div class="login_form">
 
   <div class="login_username">
@@ -71,20 +74,11 @@
 
   </div><!-- login_username -->
 
-  <div class="login_username">
-  <p>Password </p>
-
-  <input type="password" name="password" class="login_username_input" type="text" />
-
-  </div><!-- login_username -->
-
 
   <div class="login_username">
 
-  <button type="button" class="login_button_form" id="loginBtn">Login</button>
+  <button type="button" class="login_button_form" id="forgotpasswordBtn">Reset Password</button>
 </from>
-
-  <div class="login_forgot_pass"><a href="<?php echo base_url('index/forgotPassword') ?>">Forgot your Password?</a></div>
 
   </div><!-- login_username -->
 

@@ -20,5 +20,22 @@
           return $result;
       }
 
+      public function forgotPassword($emailId='')
+      {
+          $this->db->select('*');
+          $this->db->from('user');
+          $this->db->where('emailId', $emailId);
+          $query = $this->db->get();
+          $count = $query->num_rows();
+
+          if($count == 1){
+            $this->email->to($emailId);
+            $this->email->from('dokku.premchand@gmail.com');
+            $this->email->subject('Test email');
+            $this->email->message('Hi this is a test email.');
+            $mailResponce  = $this->email->send();
+          }
+          return $count;
+      }
   }
 ?>
