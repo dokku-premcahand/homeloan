@@ -22,7 +22,7 @@
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://www.testsite.dev/';
+$config['base_url'] = 'http://localhost:8080/';
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +34,7 @@ $config['base_url'] = 'http://www.testsite.dev/';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = 'home.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -114,7 +114,7 @@ $config['enable_hooks'] = FALSE;
 | http://codeigniter.com/user_guide/general/creating_libraries.html
 |
 */
-$config['subclass_prefix'] = 'MY_';
+$config['subclass_prefix'] = 'Base_';
 
 
 /*

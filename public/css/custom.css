@@ -58,9 +58,16 @@ body {
 /* Lastly, apply responsive CSS fixes as necessary */
 @media (max-width: 767px) {
 #footer {
+  height: 30px;
   margin-left: -20px;
   margin-right: -20px;
   padding-left: 20px;
   padding-right: 20px;
 }
 }
+
+/*--------------------------------*/
+/*.alert{
+    padding: 0px !important;
+    border: 0px !important;
+}*/

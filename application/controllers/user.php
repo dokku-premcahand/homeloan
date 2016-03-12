@@ -1,16 +1,9 @@
-<?php
+<?php if (!defined('BASEPATH'))exit('No direct script access allowed');
 
-if (!defined('BASEPATH'))
-    exit('No direct script access allowed');
-
-class User extends CI_Controller {
+class User extends Base_Controller {
 
     public function __construct() {
         parent::__construct();
-        $sessionData = $this->session->all_userdata();
-        if (empty($sessionData['id']) || empty($sessionData['emailId'])) {
-            header('Location:' . base_url('index/login'));
-        }
         
     }
 
