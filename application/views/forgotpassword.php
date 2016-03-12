@@ -64,7 +64,7 @@
       <?php echo $this->session->flashdata('errorMsg'); ?>
   </div>
 
-<form action="<?php echo base_url('index/forgotPasswordEmail') ?>" method="post" class="forgotpasswordFrm"/>
+<form action="<?php echo base_url('home/forgotPasswordEmail') ?>" method="post" class="forgotpasswordFrm"/>
   <div class="login_form">
 
   <div class="login_username">

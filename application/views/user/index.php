@@ -35,8 +35,8 @@
                     <div class="header_spacer_right">
 
                         <div class="header_spacer_right_left_1">
-                            <a href=""><img class="header_spacer_right_img" src="img/login.png" alt="" /></a>
-                            <a class="header_spacer_right_para" href="<?php echo base_url('home/login'); ?>">Login</a>
+                            <a href="<?php echo base_url(); ?>"><img class="header_spacer_right_img" src="img/login.png" alt="" /></a>
+                            <a class="header_spacer_right_para" href="<?php echo base_url('home/logout'); ?>">Logout</a>
                         </div><!-- header_spacer_right_left_1 -->
 
 
@@ -64,26 +64,14 @@
             <ul id="menu">
                 <li><a href="#">HOME</a></li>
                 <li>
-                    <a href="#">ABOUT</a>
+                    <a href="<?php echo base_url('user/myProfile'); ?>">MY PROFILE</a>
 
                 </li>
                 <li>
-                    <a href="#">LEADERSHIP TEAM</a>
+                    <a href="#">LOAN OPPORTUNITY</a>
                 </li>
                 <li>
-                    <a href="#">TESTIMONIALS</a>
-                </li>
-                <li>
-                    <a href="#">BROKER'S CORNER</a>
-                    <ul>
-                        <li><a href="#">Sub menu1</a></li>
-                        <li><a href="#">Sub menu2</a></li>
-                        <li><a href="#">Sub menu3</a></li>
-                        <li><a href="#">Sub menu4</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">CONTACT US</a>
+                    <a href="#">MY LOAN LIST</a>
                 </li>
             </ul>
 
@@ -115,3 +103,4 @@
 
     </body>
 </html>
+    
