@@ -7,13 +7,25 @@
             </div>
             <ul class="nav navbar-nav navbar-right">
                 <li class="active">
-                    <a href="<?php echo base_url('home/login'); ?>">Login</a>
-                    <span class="glyphicons glyphicons-log-in" syle="color:#FFFFFF;"></span>
+                    <?php
+                        if($header == 'login'){
+                    ?>
+                        <a href="<?php echo base_url('home/login'); ?>">Login&nbsp;<i class="glyphicon glyphicon-log-in" style="color: #ffffff;"></i></a>
+                    <?php      
+                        }else {
+                    ?>
+                        <a href="<?php echo base_url('home/logout'); ?>">Logout&nbsp;<i class="glyphicon glyphicon-log-out" style="color: #ffffff;"></i></a>
+                    <?php
+                        }
+                    ?>
                 </li>
             </ul>
         </div>
     </nav>
 </header>
+<?php
+    if($header == 'login'){
+?>
 <header class="col-lg-offset-1 col-lg-10">
     <nav class="navbar navbar-default home-menubar">
         <div class="container-fluid">
@@ -41,3 +53,25 @@
         </div> 
     </nav>
 </header>
+<?php
+} else {
+?>
+<header class="col-lg-offset-1 col-lg-10">
+    <nav class="navbar navbar-default home-menubar">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav col-lg-12">
+                <li  class="<?php echo ($active == 'home') ? 'active' : ''; ?>">
+                    <a href="<?php echo base_url('user/index');?>">HOME</a>
+                </li>
+                <li class="<?php echo ($active == 'profile') ? 'active' : ''; ?>">
+                    <a href="<?php echo base_url('user/myProfile');?>">MY PROFILE</a>
+                </li>
+                <li><a href="#">LOAN OPPORTUNITY</a></li>
+                <li><a href="#">MY LOAN LIST</a></li>
+            </ul>
+        </div> 
+    </nav>
+</header>
+<?php
+}
+?>

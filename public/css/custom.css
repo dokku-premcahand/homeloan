@@ -66,8 +66,6 @@ body {
 }
 }
 
-/*--------------------------------*/
-/*.alert{
-    padding: 0px !important;
-    border: 0px !important;
-}*/
+.navbar-right > li > a{
+    font-weight: bolder;
+}

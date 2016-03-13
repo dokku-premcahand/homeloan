@@ -12,9 +12,13 @@ and open the template in the editor.
         <link href="<?php echo base_url('public/css/custom.css'); ?>" rel="stylesheet" type="text/css">
         <link href="<?php echo base_url('public/css/login.css'); ?>" rel="stylesheet" type="text/css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>public/js/login.js"></script>
     </head>
     <body class="col-lg-12">
-        <?php $this->load->view('header'); ?>
+        <?php 
+            $data['header'] = 'login';
+            $this->load->view('header',$data); 
+        ?>
     <section>
         <div class="container">
             <div class="col-lg-12">
@@ -38,7 +42,7 @@ and open the template in the editor.
                                 
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                    <input id="user" type="text" class="form-control" name="user" value="" placeholder="User">                                        
+                                    <input id="user" type="text" class="form-control" name="emailId" value="" placeholder="Email Id">                                        
                                 </div>
 
                                 <div class="input-group">
@@ -47,9 +51,10 @@ and open the template in the editor.
                                 </div>                                                                  
 
                                 <div class="form-group">
-                                    <!-- Button -->
-                                    <div class="col-sm-12 controls">
-                                        
+                                    <div class="col-sm-6 controls">
+                                        <a href="<?php echo base_url("home/forgotpassword") ?>">Forgot Password</a>
+                                    </div>
+                                    <div class="col-sm-6 controls">
                                         <button type="submit" href="#" class="btn btn-primary pull-right"><i class="glyphicon glyphicon-log-in"></i> Log in</button>                          
                                     </div>
                                 </div>

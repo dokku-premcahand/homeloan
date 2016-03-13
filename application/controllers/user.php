@@ -19,17 +19,17 @@ class User extends Base_Controller {
     
     public function myProfile()
     {
-        $this->load->model('Users');
-        $data['userdata'] = $this->Users->getUser();
+        $this->load->model('users');
+        $data['userdata'] = $this->users->getUser();
         $this->load->view('user/myProfile', $data);
     }
     
     public function updateUser()
     {
-        $this->load->model('Users');
-        $data['userdata'] = $this->Users->updateUser();
-                    $this->session->set_flashdata('flashSuccess', 'User Sucessfully added.');
-            redirect('user/myProfile');
+        $this->load->model('users');
+        $data['userdata'] = $this->users->updateUser();
+        $this->session->set_flashdata('flashSuccess', 'User Sucessfully added.');
+        header('Location:' . base_url('user/myProfile'));
     }
 
 }

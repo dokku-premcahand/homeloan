@@ -23,8 +23,8 @@ class Home extends CI_Controller {
     public function authenticate()
     {
         $post = $this->input->post();
-        $this->load->model('Users');
-        $result = $this->Users->authenticate($post);
+        $this->load->model('users');
+        $result = $this->users->authenticate($post);
 
         if ($result['count'] == 1) {
             $sessionData = array('id' => $result['data']->id, 'emailId' => $result['data']->emailId);
@@ -44,49 +44,49 @@ class Home extends CI_Controller {
     public function forgotPasswordEmail()
 	{
         $emailId = $this->input->post('emailId');
-        $this->load->model('Users');
-        $responce = $this->Users->forgotPassword($emailId);
+        $this->load->model('users');
+        $responce = $this->users->forgotPassword($emailId);
         if ($responce == 1) {
             $this->session->set_flashdata('successMsg', 'Password reset link sent to the given emailid.');
-            header('Location:' . base_url('index/forgotPassword'));
+            header('Location:' . base_url('home/forgotPassword'));
         } else {
             $this->session->set_flashdata('errorMsg', 'Email Id not registered with us.');
-            header('Location:' . base_url('index/forgotPassword'));
+            header('Location:' . base_url('home/forgotPassword'));
         }
     }
     
     public function resetPassword($resetLink){
         if(!empty($resetLink)){
-            $this->load->model('user');
-            $responce = $this->user->validateResetPasswordLink($resetLink);
+            $this->load->model('users');
+            $responce = $this->users->validateResetPasswordLink($resetLink);
             if(count($responce) > 0){
                 $this->load->view('resetpassword',$responce);
             }else{
                 $this->session->set_flashdata('errorMsg', "Invali reset password link.");
-                header('Location:'.base_url('index/login'));
+                header('Location:'.base_url('home/login'));
             }
         }else{
             $this->session->set_flashdata('errorMsg', "You don't have access to this link.");
-            header('Location:'.base_url('index/login'));
+            header('Location:'.base_url('home/login'));
         }
     }
     
     public function setnewpassword(){
         $post = $this->input->post();
-        $this->load->model('user');
-        $responce = $this->user->setnewpassword($post);
+        $this->load->model('users');
+        $responce = $this->users->setnewpassword($post);
         if($responce == 1){
             $this->session->set_flashdata('successMsg', "Password updated successfully. Please login.");
-            header('Location:'.base_url('index/login'));
+            header('Location:'.base_url('home/login'));
         }else{
             $this->session->set_flashdata('errorMsg', "Failed to update the password. Retry after sometime.");
-            header('Location:'.base_url('index/login'));
+            header('Location:'.base_url('home/login'));
         }
     }
 
     public function logout()
     {
         $this->session->sess_destroy();
-        header('Location:'.base_url('index/login'));
+        header('Location:'.base_url('home/login'));
     }
 }

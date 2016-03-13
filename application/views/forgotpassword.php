@@ -1,105 +1,71 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Login</title>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/css/style.css"/>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/css/menu.css"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>public/js/login.js"></script>
-</head>
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Forgot Password</title>
+        <link href="<?php echo base_url('public/css/bootstrap.css'); ?>" rel="stylesheet" type="text/css">
+        <link href="<?php echo base_url('public/css/custom.css'); ?>" rel="stylesheet" type="text/css">
+        <link href="<?php echo base_url('public/css/login.css'); ?>" rel="stylesheet" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>public/js/login.js"></script>
+    </head>
+    <body class="col-lg-12">
+        <?php 
+            $data['header'] = 'login';
+            $this->load->view('header',$data); 
+        ?>
+    <section>
+        <div class="container">
+            <div class="col-lg-12">
+                <div id="loginbox" class="mainbox col-sm-offset-4 col-md-offset-4 col-md-4  col-sm-4 ">
+                    <div class="panel panel-default" >
+                        <div class="panel-heading customPanel">
+                            <div class="panel-title text-center">Forgot Password</div>
+                        </div>     
 
-<body>
+                        <div class="panel-body" >
+                            <?php
+                                if($this->session->flashdata('errorMsg')){
+                            ?>
+                                    <div class="alert alert-danger" role="alert">
+                                        <?php echo $this->session->flashdata('errorMsg');?>
+                                    </div>
+                            <?php
+                                }else if($this->session->flashdata('successMsg')){
+                            ?>
+                                     <div class="alert alert-success" role="alert">
+                                        <?php echo $this->session->flashdata('successMsg');?>
+                                    </div>
+                            <?php
+                                }
+                            ?>
+                            <form name="form" action="<?php echo base_url("home/forgotPasswordEmail") ?>" id="form" class="form-horizontal forgotpasswordFrm" enctype="multipart/form-data" method="POST">
+                                
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <input id="user" type="text" class="form-control" name="emailId" value="" placeholder="Email Id">                                        
+                                </div>                                                                 
 
-<div class="header">
+                                <div class="form-group">
+                                    <div class="col-sm-12 controls" style="text-align: center;">
+                                        <button type="button" id="forgotpasswordBtn" class="btn btn-primary login_username_input"> Reset Password</button>                          
+                                    </div>
+                                </div>
 
-<div class="header_spacer">
+                            </form>     
 
-<div class="header_spacer_wrap">
-
- <div class="header_spacer_left">
-
- <p class="header_spacer_left_phone_number">Project Name</p>
- </div><!-- header_spacer_left -->
-
-  <div class="header_spacer_right">
-
-
- </div><!-- header_spacer_right -->
-
- </div><!-- header_spacer_wrap -->
-
-</div><!-- header_spacer -->
-
-
-<div class="main_header">
-
-
-
-
-
-</div><!-- main_header -->
-
-</div><!-- header -->
-
-<div style="clear:both"></div>
-
-<br />
-
-
-
-<div style="clear:both"></div>
-<br />
-<div class="wrapper">
-
-
-  <div class="login_main_wrapper">
-<div class="login_heading"> <p>Login</p> </div><!-- login_heading -->
-
-<div class="login_wrapper">
-  <div class="successMsg">
-      <?php echo $this->session->flashdata('successMsg'); ?>
-  </div>
-  <div class="errorMsg">
-      <?php echo $this->session->flashdata('errorMsg'); ?>
-  </div>
-
-<form action="<?php echo base_url('home/forgotPasswordEmail') ?>" method="post" class="forgotpasswordFrm"/>
-  <div class="login_form">
-
-  <div class="login_username">
-  <p>Email ID </p>
-
-  <input type="email" name="emailId" class="login_username_input" type="text" />
-
-  </div><!-- login_username -->
-
-
-  <div class="login_username">
-
-  <button type="button" class="login_button_form" id="forgotpasswordBtn">Reset Password</button>
-</from>
-
-  </div><!-- login_username -->
-
-  </div><!-- login_form -->
-
-</div><!-- login_wrapper -->
-
-</div><!-- login_main_wrapper -->
-
-</div><!-- wrapper -->
-
-<div style="clear:both"></div>
-<br/><br/>
-<div class="footer">
-
-<div class="footer_wrap">
-<p class="footer_para">Copyright text.</p>
-<div class="footer_copyright"><a target="_blank" href=""><img src="" alt="" /></a></div>
-
-</div><!-- footer_wrap -->
-</div><!-- footer -->
-
-</body>
+                        </div>                     
+                    </div>  
+                </div>
+            </div>
+        </div><br>
+    </section>
+        <?php $this->load->view('footer'); ?>
+    </body>
+    <script type="text/javascript"src="<?php echo base_url('public/js/bootstrap.js'); ?>"></script>
 </html>
