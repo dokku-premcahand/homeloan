@@ -25,19 +25,19 @@
 </header>
 <?php
     if($header == 'login'){
-?>
+?> 
 <header class="col-lg-offset-1 col-lg-10">
     <nav class="navbar navbar-default home-menubar">
         <div class="container-fluid">
             <ul class="nav navbar-nav col-lg-12">
-                <li class="active"><a href="#">HOME</a></li>
+                <li class="<?php echo ($active == 'home') ? 'active' : ''; ?>"><a href="<?php echo base_url(); ?>">HOME</a></li>
                 <li><a href="#">ABOUT</a></li>
                 <li><a href="#">LEADERSHIP TEAM</a></li>
                 <li><a href="#">TESTIMONIAL</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         BROKER'S CORNER <span class="caret"></span>
-                    </a>
+                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Action</a></li>
                         <li><a href="#">Another action</a></li>
