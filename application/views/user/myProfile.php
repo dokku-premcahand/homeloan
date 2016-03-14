@@ -22,7 +22,7 @@ and open the template in the editor.
     <section>
         
         <?php if ($this->session->flashdata('flashSuccess')): ?>
-                <div class="flashSuccess"><p class='flashMsg'> <?php echo $this->session->flashdata('flashSuccess') ?> </p></div>
+        <div class="alert alert-success" role="alert" style="margin-top: 130px;text-align: center;"><?php echo $this->session->flashdata('flashSuccess') ?></div>
             <?php endif ?>
             <br /><br />
         <div class="container">
@@ -155,15 +155,3 @@ and open the template in the editor.
 </html>
 <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
 <script type="text/javascript"src="<?php echo base_url('public/js/validation.js'); ?>"></script>
-
-                <style>
-
-                    .flashSuccess {
-                       /* background-color: #b3efa6;*/
-                        color: green;
-                        margin: 0 auto;
-                        padding-top: 147px;
-                        text-align: center;
-                     }
-
-                </style>
