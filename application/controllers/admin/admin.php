@@ -22,6 +22,6 @@ class Admin extends Base_AdminController {
     {
         $this->AdminModel->saveLoan();
         $this->session->set_flashdata('successMsg', 'Loan Opportunity successfully added.');
-         redirect(base_url('admin/addLoanOpportunity'));
+         redirect(base_url('admin/admin/addLoanOpportunity'));
     }
 }
