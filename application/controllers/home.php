@@ -29,7 +29,7 @@ class Home extends CI_Controller {
         if ($result['count'] == 1) {
             $sessionData = array('id' => $result['data']->id, 'emailId' => $result['data']->emailId);
             $this->session->set_userdata($sessionData);
-            header('Location:' . base_url('user/index'));
+            header('Location:' . base_url('user/myProfile'));
         } else {
             $this->session->set_flashdata('errorMsg', 'Invalid username or password.');
             header('Location:' . base_url('home/login'));

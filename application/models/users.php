@@ -35,7 +35,7 @@
         
         if($count == 1){
 //            $this->email->to($emailId);
-//            $this->email->from('dokku.premchand@gmail.com');
+//            $this->email->from('');
 //            $this->email->subject('Forgot password reset link');
 //            $this->email->message(base_url('index/resetPassword'.$mdString));
 //            $mailResponce  = $this->email->send();
@@ -69,49 +69,59 @@
         return $responce;
     }
       
-      public function getUser()
-      {
-        $data = $this->db->select('*')
-                ->from('user_details')
-                ->where('user_id', 1)
-                ->get()
-                ->row();
+    public function getUser()
+    {
+        $data = $this->db->select('*')->from('user_details')->where('user_id', 1) ->get()->row();
         return $data;
-          
-      }
+    }
       
-      public function updateUser()
-      {
-          $post = $this->input->post();
-//          echo "<pre>";
-//          print_r($post);exit;
-          $data = array(
-              'username' => $post['username'],
-              'firstname' => $post['firstname'],
-              'lastname'  => $post['lastname'],
-              'email'     => $post['email'],
-              'mobile_number' => $post['mobile_number'],
-              'state' => $post['state'],
-              'city' => $post['city'],
-              'address' => $post['address'],
-              'zipcode' => $post['zipcode'],
-              'account_type' => $post['account']
-          );
-          
-          $this->db->update('user_details',$data);
-          if(!empty($post['password']))
-          {
-              $data = array(
-                  'password' => md5($post['password']),
-                  'emailId'    => $post['email']
-              );
-              $this->db->update('user',$data);
-          }else{
-               $data = array(
-                  'emailId'    => $post['email']
-              );
-              $this->db->update('user',$data);
-          }
+    public function updateUser()
+    {
+        $post = $this->input->post();
+//          echo "<pre>";print_r($post);exit;
+        $data = array(
+            'username' => $post['username'],
+            'firstname' => $post['firstname'],
+            'lastname'  => $post['lastname'],
+            'email'     => $post['email'],
+            'mobile_number' => $post['mobile_number'],
+            'state' => $post['state'],
+            'city' => $post['city'],
+            'address' => $post['address'],
+            'zipcode' => $post['zipcode'],
+            'account_type' => $post['account']
+        );
 
-      }
+        $this->db->update('user_details',$data);
+        if(!empty($post['password']))
+        {
+            $data = array(
+                'password' => md5($post['password']),
+                'emailId'    => $post['email']
+            );
+            $this->db->update('user',$data);
+        }else{
+             $data = array(
+                'emailId'    => $post['email']
+            );
+            $this->db->update('user',$data);
+        }
+    }
+    
+    public function getloanOpportunit($offset = 0){
+        $data['data'] = $this->db->select('*')->from('loan_opportunity')->limit(limit,$offset)->get()->result();
+        $data['totalRows'] = $this->db->select('*')->from('loan_opportunity')->get()->num_rows();
+        return $data;
+    }
+    
+    public function loanOpportunityDetails($loanOpportunityDetails){
+        $data = $this->db->select('*')->from('loan_opportunity')
+                        ->where('id',$loanOpportunityDetails)->get()->row();
+        return $data;
+    }
+    
+    public function myLoanList(){
+//        $data = ;
+//        return $data;
+    }
   }
