@@ -25,7 +25,7 @@
                             <?php
                         }
                         ?>
-                        <form role="form" action="<?php echo base_url("admin/authenticate") ?>" enctype="multipart/form-data" method="POST" id="adminLogin">
+                        <form role="form" action="<?php echo base_url("admin/index/authenticate") ?>" enctype="multipart/form-data" method="POST" id="adminLogin">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="E-mail" name="email" id="email" autofocus="">

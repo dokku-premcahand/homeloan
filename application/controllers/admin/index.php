@@ -1,7 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-//class Admin extends CI_Controller {Base_Controller
-class Admin extends Adminbase_Controller {
+class Index extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
@@ -10,7 +9,7 @@ class Admin extends Adminbase_Controller {
 
     public function index()
     {
-     $this->load->view('admin/index');
+        $this->load->view('admin/index');
     }
     
     public function authenticate()
@@ -24,27 +23,8 @@ class Admin extends Adminbase_Controller {
         }else{
             $sessionData = array('id' => $result['data']->id, 'username' => $result['data']->username);
             $this->session->set_userdata($sessionData);
-            redirect(base_url('admin/dashboard'));
+            redirect(base_url('admin/admin/dashboard'));
         }
         
     }
-    
-    public function dashboard()
-    {
-        $this->load->view('admin/dashboard');
-        
-    }
-    
-    public function addLoanOpportunity()
-    {
-        $this->load->view('admin/addLoan');
-    }
-    
-    public function saveLoan()
-    {
-        $this->AdminModel->saveLoan();
-        $this->session->set_flashdata('successMsg', 'Loan Opportunity successfully added.');
-         redirect(base_url('admin/addLoanOpportunity'));
-    }
-    
 }

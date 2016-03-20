@@ -56,7 +56,7 @@
 		</form>
 		<ul class="nav menu">
 			<li class="active"><a href="index.html"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>
-                        <li><a href="<?php echo base_url('admin/addLoanOpportunity') ?>"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Add Loan</a></li>
+                        <li><a href="<?php echo base_url('admin/admin/addLoanOpportunity') ?>"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Add Loan</a></li>
 			<li role="presentation" class="divider"></li>
 			<li><a href="login.html"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg>Logout</a></li>
 		</ul>
