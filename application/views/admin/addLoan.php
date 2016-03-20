@@ -13,11 +13,11 @@
             <h1 class="page-header">Add Loan Opportunity</h1>
         </div>
     </div><!--/.row-->
-
+<form role="form" name="addLoan" id="addLoan" method="post" action="<?php echo base_url('admin/saveLoan'); ?>" enctype="multipart/form-data">
     <div class="row">
-        <div class="col-lg-12">
+       <div class="col-lg-12">
             <div class="panel panel-default">
-                <!--<div class="panel-heading">Add Loan Opportunity</div>-->
+                <div class="panel-heading">Basic Details</div>
                 <?php
                 if ($this->session->flashdata('successMsg')) {
                     ?>
@@ -28,7 +28,7 @@
                 }
                 ?>
                 <div class="panel-body">
-                    <form role="form" name="addLoan" id="addLoan" method="post" action="<?php echo base_url('admin/saveLoan'); ?>">
+<!--                    <form role="form" name="addLoan" id="addLoan" method="post" action="<?php echo base_url('admin/saveLoan'); ?>" enctype="multipart/form-data">-->
                         <div class="col-md-6"> 
                             <div class="form-group">
                                 <label>Project Name</label> 
@@ -36,7 +36,6 @@
                             </div>
                             <div class="form-group">
                                 <label>State</label>
-                                <!--<input name="state" id="state" class="form-control" placeholder="State">-->
                                 <select class="form-control required" name="state" id="state">
                                     <option value="">Select State</option>
                                     <option value="Maharashtra">Maharashtra</option>
@@ -44,7 +43,6 @@
                             </div>
                             <div class="form-group">
                                 <label>City</label>
-                                <!--<input name="city" id="city" class="form-control" placeholder="City">-->
                                 <select class="form-control required" name="city" id="city">
                                     <option value="">Select City</option>
                                     <option value="Mumbai">Mumbai</option>
@@ -127,16 +125,42 @@
                                 <label>Security</label>
                                 <input name="security" id="security" class="form-control" placeholder="Security">
                             </div>
-
+                            
+                            <div class="form-group">
+                                    <label>Image</label>
+                                    <input type="file" name="image" id="image" required>
+                            </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit Button</button>
-                    </form>
+<!--                        <button type="submit" class="btn btn-primary">Submit Button</button>
+                    </form>-->
                 </div>
-                <!--</div>-->
+                </div>
             </div>
         </div>
-    </div>
-
+        
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Documents</div>
+                <div class="panel-body">
+                    <!--<form role="form" name="addLoanDocument" id="addLoanDocument" method="post" action="<?php echo base_url('admin/saveLoanDocument'); ?>" enctype="multipart/form-data">-->
+                        <div class="col-md-12 divAdd"> 
+                            <div class="form-group divnew" id="div1">
+                                    <div class="col-md-3"><input name="title[]" id="title1" class="form-control" placeholder="Document title"></div>
+                                    <div class="col-md-3"><input name="type[]" id="type1" class="form-control" placeholder="Document type"></div>
+                                    <div class="col-md-3"><input type="file" name="document[]" id="document1"></div>
+                                    <div class="col-md-3"><a id="addButton" style="cursor: pointer;">+</a></div>
+                            </div>
+                        </div>
+                        <br></br>
+                        <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Submit Button</button>
+                        </div>
+                 
+                </div>
+            </div>
+        </div>
+   </form>
+    
     <?php $this->load->view('footer'); ?>	
     <script type="text/javascript" src="<?php echo base_url('public/js/jquery.min.js'); ?>"></script>
     <script src="<?php echo base_url('public/js/bootstrap-datepicker.js'); ?>"></script>
@@ -147,6 +171,30 @@
             $('#maturityDate').datepicker();
             $('#date').datepicker();
             $('#closingDate').datepicker();
-        })
+            
+            var counter = 2;
+        $("#addButton").click(function () {
+            $(".divAdd").append('<br></br><div class="form-group divnew" id="div'+counter+'">\n\
+                 <div class="col-md-3"><input name="title[]" id="title'+counter+'" class="form-control" placeholder="Document title"></div>\n\
+                 <div class="col-md-3"><input name="type[]" id="type'+counter+'" class="form-control" placeholder="Document type"></div>\n\
+                 <div class="col-md-3"><input type="file" name="document[]" id="document'+counter+'"></div>\n\
+                 <div class="col-md-3"><a style="cursor: pointer;" class="remove" value="'+counter+'">-</a></div></div>'
+            )
+        counter++;
+		})
+                
+        $(".divAdd").on("click", ".remove", function (e) {
+            var counter = $(this).attr('value');
+//            alert(counter);
+            $("#div" + counter).remove();
+       })
+})
 
     </script>
+    
+    <style>
+/*        .divnew{
+            margin-bottom:  50px;
+            float: left;
+        }*/
+    </style>

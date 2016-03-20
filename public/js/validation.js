@@ -114,6 +114,9 @@ $(function () {
             },
             city: {
                 required :"Please enter city"
+            },
+            image: {
+                required :"Please select image"
             }
         },
         submitHandler: function (form) {
