@@ -3,12 +3,12 @@
         <div class="container-fluid">
              <!--Brand and toggle get grouped for better mobile display--> 
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Brand</a>
+                <a class="navbar-brand" href="<?php echo base_url(); ?>">Brand</a>
             </div>
             <ul class="nav navbar-nav navbar-right">
                 <li class="active">
                     <?php
-                        if($header == 'login'){
+                        if($header == 'login' || $header == ''){
                     ?>
                         <a href="<?php echo base_url('home/login'); ?>">Login&nbsp;<i class="glyphicon glyphicon-log-in" style="color: #ffffff;"></i></a>
                     <?php      
@@ -54,7 +54,7 @@
     </nav>
 </header>
 <?php
-} else {
+} else if($header == 'logout') {
 ?>
 <header class="col-lg-offset-1 col-lg-10">
     <nav class="navbar navbar-default home-menubar">

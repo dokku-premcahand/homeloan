@@ -22,7 +22,7 @@ and open the template in the editor.
     <section>
         
         <?php if ($this->session->flashdata('flashSuccess')): ?>
-        <div class="alert alert-success" role="alert" style="margin-top: 130px;text-align: center;"><?php echo $this->session->flashdata('flashSuccess') ?></div>
+        <div class="alert alert-success" role="alert" style="margin-top: 140px;text-align: center;"> <?php echo $this->session->flashdata('flashSuccess') ?></div>
             <?php endif ?>
             <br /><br />
         <div class="container">

@@ -31,5 +31,10 @@ class User extends Base_Controller {
         $this->session->set_flashdata('flashSuccess', 'User Sucessfully added.');
         header('Location:' . base_url('user/myProfile'));
     }
+    
+    public function saveLoan()
+    {
+        echo "yes";exit;
+    }
 
 }

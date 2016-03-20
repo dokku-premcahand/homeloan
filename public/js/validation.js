@@ -1,4 +1,4 @@
-$(function () {
+$(function () { 
     $("#user_registration").validate({
         rules: {
             username: "required",
@@ -55,4 +55,69 @@ $(function () {
         }
 
     });
-});
+    
+
+    $("#adminLogin").validate({
+        rules: {
+            email: "required",
+            password: "required"
+        },
+        messages: {
+            email: "Please enter email id",
+            password: "Please enter your password"
+        },
+        submitHandler: function (form) {
+            form.submit();
+        }
+    })     
+    
+    $("#addLoan").validate({
+        rules:{
+            projectName:"required",
+            ltv :"required",
+            apr :"required",
+            maturityDate :"required",
+            penalty :"required",
+            agent :"required",
+            exitTerm :"required",
+            purpose :"required",
+            location :"required",
+            address :"required",
+            loanAmount :"required",
+            term :"required",
+            grossApr :"required",
+            date :"required",
+            closingDate :"required",
+            agentUrl :"required",
+            security :"required"
+        },
+        messages:{
+            projectName:"Please enter Project Name",
+            ltv :"Please enter LTV ",
+            apr :"Please enter APR",
+            maturityDate :"Please enter Maturity date",
+            penalty :"Please enter penalty",
+            agent :"Please enter Agent",
+            exitTerm :"Please enter Exit Terms",
+            purpose :"Please enter Purpose",
+            location :"Please enter Location",
+            address :"Please enter addreaa",
+            loanAmount :"Please enter Loan Amount",
+            term :"Please enter Terms",
+            grossApr :"Please enter Gross APR",
+            date :"Please enter date",
+            closingDate :"Please enter Closing Date",
+            agentUrl :"Please enter agent URL",
+            security :"Please enter security",
+            state: {
+                required :"Please enter State"
+            },
+            city: {
+                required :"Please enter city"
+            }
+        },
+        submitHandler: function (form) {
+            form.submit();
+        }
+    })
+})

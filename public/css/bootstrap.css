@@ -6757,4 +6757,8 @@ button.close {
     display: none !important;
   }
 }
+.errorMsg {
+    color: red;
+    font-style: italic;
+}
 /*# sourceMappingURL=bootstrap.css.map */

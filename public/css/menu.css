@@ -64,6 +64,7 @@
     left: 0;
     z-index: 99999;    
     background: #3e78a6 ;
+    width:186px;
 }
 
 #menu ul ul {
