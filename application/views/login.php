@@ -18,6 +18,8 @@ and open the template in the editor.
         <?php 
             $data['header'] = '';
             $data['active'] = '';
+            $data['subHeader'] = 1;
+            $data['page'] = 'login';
             $this->load->view('header',$data); 
         ?>
     <section>

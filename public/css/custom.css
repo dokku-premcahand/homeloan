@@ -65,7 +65,32 @@ body {
   padding-right: 20px;
 }
 }
-
 .navbar-right > li > a{
     font-weight: bolder;
+}
+.center{
+    text-align: center;
+}
+.pointer{
+    cursor: pointer;
+}
+.valign > td{
+    vertical-align: middle !important;
+}
+.odd{
+    padding: 10px 0px;
+    border-top: 1px solid #CCCCCC;
+    border-bottom: 1px solid #CCCCCC;
+    background-color: #EEEEEE;
+    padding-left: 10px;
+}
+.even{
+    padding: 10px 0px;
+    padding-left: 10px;
+}
+.bold{
+    font-weight: bolder;
+}
+.page-header{
+    margin-top:0px !important;
 }
