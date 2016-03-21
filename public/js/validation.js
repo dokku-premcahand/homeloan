@@ -83,7 +83,10 @@ $(function () {
             purpose :"required",
             location :"required",
             address :"required",
-            loanAmount :"required",
+            loanAmount :{
+                required: true,
+                number: true
+            },
             term :"required",
             grossApr :"required",
             date :"required",
@@ -102,7 +105,10 @@ $(function () {
             purpose :"Please enter Purpose",
             location :"Please enter Location",
             address :"Please enter addreaa",
-            loanAmount :"Please enter Loan Amount",
+            loanAmount :{
+                required :"Please enter Loan Amount",
+                number :"Please enter digits only"
+            },
             term :"Please enter Terms",
             grossApr :"Please enter Gross APR",
             date :"Please enter date",
