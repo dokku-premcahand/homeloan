@@ -26,58 +26,54 @@ class AdminModel extends CI_Model {
         $postdata = $this->input->post();
         $this->load->library('upload');
 
-//        $possible_letters = '23456789bcdfghjkmnpqrstvwxyz';
-//        $code = '';
-//        $j = 0;
-//            while ($j < 4) {
-//                $code .= substr($possible_letters, mt_rand(0, strlen($possible_letters) - 1), 1);
-//                $j++;
-//            }
-//
-//        $unique_code = $code;
-//        $file_exnt = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
-//        $filename = current(explode(".", $_FILES['image']['name']));
-//        $genertaed_file_name = $filename . $unique_code . "." . $file_exnt;
-//
-//        $this->upload->initialize($this->set_upload_image($genertaed_file_name));
-//
-//        if (!$this->upload->do_upload('image')) {
-//            $error = array('error' => $this->upload->display_errors());
-//            echo '<pre>', print_r($error);
-//            exit;
-//            return 0;
-//        } else {
-//            $data = array('upload_data' => $this->upload->data('image'));
-//            $data1 = array(
-//                'projectName' => $postdata['projectName'],
-//                'ltv' => $postdata['ltv'],
-//                'apr' => $postdata['apr'],
-//                'maturityDate' => $postdata['maturityDate'],
-//                'penalty' => $postdata['penalty'],
-//                'agent' => $postdata['agent'],
-//                'exitTerm' => $postdata['exitTerm'],
-//                'purpose' => $postdata['purpose'],
-//                'location' => $postdata['location'],
-//                'address' => $postdata['address'],
-//                'loanAmount' => $postdata['loanAmount'],
-//                'term' => $postdata['term'],
-//                'grossApr' => $postdata['grossApr'],
-//                'date' => $postdata['date'],
-//                'closingDate' => $postdata['closingDate'],
-//                'agentUrl' => $postdata['agentUrl'],
-//                'security' => $postdata['security'],
-//                'state' => $postdata['state'],
-//                'city' => $postdata['city'],
-//                'image' => $data['upload_data']['full_path']
-//            );
-//            $this->db->insert('loan_opportunity', $data1);
-//            $insert_id = $this->db->insert_id();
-//            if(count($_FILES['document']['name']) > 0 )
-//            {
-        $insert_id = 1;
+        $possible_letters = '23456789bcdfghjkmnpqrstvwxyz';
+        $code = '';
+        $j = 0;
+            while ($j < 4) {
+                $code .= substr($possible_letters, mt_rand(0, strlen($possible_letters) - 1), 1);
+                $j++;
+            }
+
+        $unique_code = $code;
+        $file_exnt = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+        $filename = current(explode(".", $_FILES['image']['name']));
+        $genertaed_file_name = $filename . $unique_code . "." . $file_exnt;
+        
+        $target = dirname(__FILE__).'/../../uploads/loanOppImg/'.$genertaed_file_name;
+
+        if(!move_uploaded_file($_FILES['image']['tmp_name'], $target)){
+            echo "Image not uploading";exit;
+        } else {
+            $data['upload_data']['full_path'] = 'tes';
+            $data1 = array(
+                'projectName' => $postdata['projectName'],
+                'ltv' => $postdata['ltv'],
+                'apr' => $postdata['apr'],
+                'maturityDate' => $postdata['maturityDate'],
+                'penalty' => $postdata['penalty'],
+                'agent' => $postdata['agent'],
+                'exitTerm' => $postdata['exitTerm'],
+                'purpose' => $postdata['purpose'],
+                'location' => $postdata['location'],
+                'address' => $postdata['address'],
+                'loanAmount' => $postdata['loanAmount'],
+                'term' => $postdata['term'],
+                'grossApr' => $postdata['grossApr'],
+                'date' => $postdata['date'],
+                'closingDate' => $postdata['closingDate'],
+                'agentUrl' => $postdata['agentUrl'],
+                'security' => $postdata['security'],
+                'state' => $postdata['state'],
+                'city' => $postdata['city'],
+                'image' => $target
+            );
+            $this->db->insert('loan_opportunity', $data1);
+            $insert_id = $this->db->insert_id();
+            if(count($_FILES['document']['name']) > 0 )
+            {
                 $this->saveLoanDocument($insert_id);
-//            }
-//        }
+            }
+        }
     }
 
     private function set_upload_image($genertaed_file_name) {
@@ -99,23 +95,36 @@ class AdminModel extends CI_Model {
 
         for($i=0; $i<$count; $i++){
 
+            $data = array(
+                'lo_id' => $insert_id,
+                'title' => $postdata['title'][$i],
+                'type' => $postdata['type'][$i]
+            );
+            $this->db->insert('loan_opportunity_documents',$data);
+            $id = $this->db->insert_id();
+
             $info = pathinfo($_FILES['document']['name'][$i]);
             $ext = $info['extension']; // get the extension of the file
             $newname = $postdata['title'][$i].".".$ext;
-            $target = dirname(__FILE__).'/../../uploads/loanOppDocument/'.$newname;
+
+            if(!is_dir(dirname(__FILE__).'/../../uploads/loanOppDocument/'.$insert_id.'/'))
+            {
+                mkdir(dirname(__FILE__).'/../../uploads/loanOppDocument/'.$insert_id.'/');
+                $target = dirname(__FILE__).'/../../uploads/loanOppDocument/'.$insert_id.'/'.$newname;
+            }else{
+                $target = dirname(__FILE__).'/../../uploads/loanOppDocument/'.$insert_id.'/'.$newname;
+            }
             if (file_exists($target))
             {
                 echo $newname . " already exists. ";exit;
             }elseif(move_uploaded_file( $_FILES['document']['tmp_name'][$i], $target)){
                 $data = array(
-                    'lo_id' => $insert_id,
-                    'title' => $postdata['title'][$i],
-                    'type' => $postdata['type'][$i],
                     'file' => $target
                 );
-                $this->db->insert('loan_opportunity_documents',$data);
+                $this->db->where('id', $id);
+                $this->db->update('loan_opportunity_documents',$data);
             }else{
-                echo "no";exit;
+                echo "File Not uploading";exit;
             }
         }
     }
