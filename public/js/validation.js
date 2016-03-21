@@ -91,7 +91,10 @@ $(function () {
             grossApr :"required",
             date :"required",
             closingDate :"required",
-            agentUrl :"required",
+            agentUrl :{
+                required: true,
+                url: true
+            },
             security :"required"
         },
         messages:{
@@ -113,7 +116,10 @@ $(function () {
             grossApr :"Please enter Gross APR",
             date :"Please enter date",
             closingDate :"Please enter Closing Date",
-            agentUrl :"Please enter agent URL",
+            agentUrl :{
+                required: "Please enter agent URL",
+                url: "Please enter valid url"
+            },
             security :"Please enter security",
             state: {
                 required :"Please enter State"

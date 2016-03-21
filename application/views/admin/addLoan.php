@@ -60,7 +60,7 @@
 
                             <div class="form-group">
                                 <label>Maturity Date</label>
-                                <input name="maturityDate" id="maturityDate" class="form-control datepicker" value="02/16/12" placeholder="Maturity Date">
+                                <input name="maturityDate" id="maturityDate" class="form-control datepicker" value="" placeholder="Maturity Date">
                             </div>
 
                             <div class="form-group">

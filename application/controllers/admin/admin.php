@@ -9,13 +9,15 @@ class Admin extends Base_AdminController {
     
     public function dashboard()
     {
-        $this->load->view('admin/dashboard');
+        $data['menu'] = 'dashboard';
+        $this->load->view('admin/dashboard',$data);
 
     }
 
     public function addLoanOpportunity()
     {
-        $this->load->view('admin/addLoan');
+        $data['menu'] = 'addloan';
+        $this->load->view('admin/addLoan',$data);
     }
 
     public function saveLoan()
