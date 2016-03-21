@@ -110,6 +110,7 @@ and open the template in the editor.
             <div class="col-lg-offset-1 col-lg-10">
                 <div class="page-header">
                     <h4>Image Details</h4>
+                    <img style="height:100px;width:100px;" src="<?php echo base_url('uploads/loanOppImg/'.$details->image)?>" alt="image"/>
                 </div>
             </div>
             <div class="col-lg-offset-1 col-lg-10">

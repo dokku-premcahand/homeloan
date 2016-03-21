@@ -71,7 +71,7 @@ and open the template in the editor.
                                     <?php echo $data->projectName; ?>
                                 </td>
                                 <td>
-                                    <img src="" alt="image"/>
+                                    <img style="height:100px;width:100px;" src="<?php echo base_url('uploads/loanOppImg/'.$data->image)?>" alt="image"/>
                                 </td>
                                 <td>
                                     <?php echo $data->state; ?>
