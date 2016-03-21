@@ -65,7 +65,7 @@ class AdminModel extends CI_Model {
                 'security' => $postdata['security'],
                 'state' => $postdata['state'],
                 'city' => $postdata['city'],
-                'image' => $target
+                'image' => $genertaed_file_name
             );
             $this->db->insert('loan_opportunity', $data1);
             $insert_id = $this->db->insert_id();
@@ -119,7 +119,7 @@ class AdminModel extends CI_Model {
                 echo $newname . " already exists. ";exit;
             }elseif(move_uploaded_file( $_FILES['document']['tmp_name'][$i], $target)){
                 $data = array(
-                    'file' => $target
+                    'file' => $newname
                 );
                 $this->db->where('id', $id);
                 $this->db->update('loan_opportunity_documents',$data);

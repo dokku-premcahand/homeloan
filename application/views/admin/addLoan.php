@@ -137,7 +137,7 @@
                 </div>
             </div>
         </div>
-        
+    <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">Documents</div>
@@ -152,12 +152,13 @@
                             </div>
                         </div>
                         <br></br>
-                        <div class="form-group">
+                        <div class="form-group" style="text-align:center; margin-top: 20px;">
                         <button type="submit" class="btn btn-primary">Submit Button</button>
                         </div>
                  
                 </div>
             </div>
+        </div> 
         </div>
    </form>
     

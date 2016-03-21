@@ -17,7 +17,7 @@ p {
 }
 
 a, a:hover, a:focus {
-	color: #30a5ff;
+	color: #3e78a6;//#30a5ff;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -158,8 +158,8 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-	background-color: #30a5ff;
-	border-color: #30a5ff;
+	background-color: #3e78a6; //#30a5ff;
+	border-color: #3e78a6;
 }
 
 .btn-success,
@@ -303,8 +303,8 @@ a.bg-danger:hover {
 
 .panel-default .panel-heading {
 	background: #fff;
-	border-bottom: 1px solid #eee;
-	color: #5f6468;
+	border-bottom: 1px solid #3e78a6;
+	color: #3e78a6;//#5f6468;
 }
 
 .panel-footer {
@@ -569,7 +569,7 @@ a.bg-danger:hover {
 .sidebar ul.nav .active > a:hover, .sidebar ul.nav li.parent a.active:hover,
 .sidebar ul.nav .active > a:focus, .sidebar ul.nav li.parent a.active:focus {
 	color: #fff;
-	background-color: #30a5ff;
+	background-color: #3e78a6;//#30a5ff;
 }*/
 
 .sidebar ul.nav ul,
