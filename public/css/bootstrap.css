@@ -6758,5 +6758,9 @@ button.close {
     display: none !important;
   }
 }
-
+.error {
+    color: red;
+    font-style: italic;
+    font-weight:normal;
+}
 /*# sourceMappingURL=bootstrap.css.map */
