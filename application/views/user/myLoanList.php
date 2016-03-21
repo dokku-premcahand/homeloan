@@ -59,16 +59,18 @@ and open the template in the editor.
                         </tr>
                     </thead>
                     <tbody>
+                        <?php foreach ($details as $data): ?>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td><?php echo $data->projectName; ?></td>
+                            <td><?php echo $data->apr; ?></td>
+                            <td><?php echo $data->term; ?></td>
+                            <td><?php echo $data->loanAmount; ?></td>
+                            <td><?php echo $data->loanAmount; ?></td>
+                            <td><?php echo $data->closingDate; ?></td>
+                            <td><?php echo $data->maturityDate; ?></td>
                             <td></td>
                         </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>

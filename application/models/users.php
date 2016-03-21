@@ -120,8 +120,10 @@
         return $data;
     }
     
-    public function myLoanList(){
-//        $data = ;
-//        return $data;
+    public function myLoanList($userId){
+        $query = $this->db->select('*')
+                ->from('loan_opportunity')
+                ->get();
+        return $result = $query->result();
     }
   }
