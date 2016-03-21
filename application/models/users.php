@@ -120,10 +120,22 @@
         return $data;
     }
     
+    public function loanDocumentsList($loanOpportunityDetails){
+        $data = $this->db->select('*')->from('loan_opportunity_documents')
+                        ->where('lo_id',$loanOpportunityDetails)->get()->result();
+        return $data;
+    }
+    
     public function myLoanList($userId){
-        $query = $this->db->select('*')
-                ->from('loan_opportunity')
-                ->get();
+        $query = $this->db->select('*')->from('loan_opportunity')->get();
         return $result = $query->result();
+    }
+    
+    public function forceDownload($documentId){
+        $this->load->helper('download');
+        $documentDetails = $this->db->select('*')->from('loan_opportunity_documents')->where('id',$documentId)->get()->row();
+        $data = file_get_contents(base_url('uploads/loanOppDocument/'.$documentDetails->lo_id.'/'.$documentDetails->file));
+        $name = $documentDetails->file;
+        force_download($name, $data);
     }
   }

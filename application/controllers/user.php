@@ -54,6 +54,7 @@ class User extends Base_Controller {
         if($loanOpportunityId != 0 && is_numeric($loanOpportunityId)){
             $this->load->model('users');
             $data['details'] = $this->users->loanOpportunityDetails($loanOpportunityId);
+            $data['documents'] = $this->users->loanDocumentsList($loanOpportunityId);
             $this->load->view('user/loanOpportunityDetails',$data);
         }else{
             $this->session->set_flashdata('errorMsg','Invalid loan opportunity id.');
@@ -70,5 +71,10 @@ class User extends Base_Controller {
             $this->session->set_flashdata('errorMsg','Invalid link.');
             header('Location:'.base_url('user/loanOpportunity'));
         }
+    }
+    
+    public function forceDownload($documentId){
+        $this->load->model('users');
+        $this->users->forceDownload($documentId);
     }
 }

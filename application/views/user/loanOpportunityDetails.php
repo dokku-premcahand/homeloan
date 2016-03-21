@@ -106,6 +106,25 @@ and open the template in the editor.
                         <div class="col-lg-6"><?php echo $details->security; ?></div>
                     </div>
                 </div>
+                <div class="col-lg-12">
+                    <div class="col-lg-12" style="margin-bottom: 5px;">
+                        <input type="checkbox" name="" value="" id=""/>
+                        &nbsp;I want to lend into the opportunity with amount($)
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="col-lg-3">
+                            <select name="" class="form-control">
+                                <option selected="selected">-Please Select-</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-3">
+                            <input type="text" name="" id="" class="form-control"/>
+                        </div>
+                        <div class="col-lg-3">
+                            <button name="" type="button" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-lg-offset-1 col-lg-10">
                 <div class="page-header">
@@ -117,6 +136,34 @@ and open the template in the editor.
                 <div class="page-header">
                     <h4>Document Details</h4>
                 </div>
+            </div>
+            <div class="col-lg-offset-1 col-lg-10">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Document Type</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            foreach($documents as $data){
+                        ?>
+                            <tr>
+                                <td><?php echo $data->title; ?></td>
+                                <td><?php echo $data->type; ?></td>
+                                <td>
+                                    <a href="<?php echo base_url('user/forceDownload/'.$data->id); ?>" target="_blank">
+                                        <span class="glyphicon glyphicon-download" aria-hidden="true" style="color:#ff6600;"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php
+                            }
+                        ?>
+                    </tbody>
+                </table>
             </div>
         </section>
         <?php //$this->load->view('footer'); ?>
