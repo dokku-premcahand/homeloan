@@ -69,18 +69,15 @@
         return $responce;
     }
 
-   return $data;
-    } public function getUser()
-    {
-        $data = $this->db->select('*')->from('user_details')->where('user_id', 1) ->get()->row();
-        return $data;
-          
-      }
+	public function getUser()
+	{
+		$data = $this->db->select('*')->from('user_details')->where('user_id', 1) ->get()->row();
+		return $data;
+	}
 
     public function updateUser()
     {
         $post = $this->input->post();
-//          echo "<pre>";print_r($post);exit;
         $data = array(
             'username' => $post['username'],
             'firstname' => $post['firstname'],
