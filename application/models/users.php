@@ -27,13 +27,13 @@
         $this->db->where('emailId', $emailId);
         $query = $this->db->get();
         $count = $query->num_rows();
-        $result = $query->result();
-        $result = $result[0];
-        $mdString = base64_encode($result->emailId.  time());
-        $data = array('resetpasswordlink' => $mdString);
-        $this->db->update('user', $data, 'id = '.$result->id);
-        
+
         if($count == 1){
+              $result = $query->result();
+              $result = $result[0];
+              $mdString = md5($result->emailId.  time());
+              $data = array('resetpasswordlink' => $mdString);
+              $this->db->update('user', $data, 'id = '.$result->id);
 //            $this->email->to($emailId);
 //            $this->email->from('dokku.premchand@gmail.com');
 //            $this->email->subject('Forgot password reset link');
@@ -42,7 +42,7 @@
         }
         return $count;
       }
-    
+
     public function validateResetPasswordLink($resetPasswordLink){
         $this->db->select('resetpasswordlink');
         $this->db->from('user');
@@ -57,7 +57,7 @@
             return $result;
         }
     }
-    
+
     public function setnewpassword($post){
         $data['password'] = md5($post['password']);
         $responce = $this->db->update('user',$data,'resetpasswordlink LIKE "'.$post['resetpasswordlink'].'"');
@@ -68,7 +68,7 @@
         }
         return $responce;
     }
-      
+
       public function getUser()
       {
         $data = $this->db->select('*')
@@ -77,9 +77,9 @@
                 ->get()
                 ->row();
         return $data;
-          
+
       }
-      
+
       public function updateUser()
       {
           $post = $this->input->post();
@@ -97,7 +97,7 @@
               'zipcode' => $post['zipcode'],
               'account_type' => $post['account']
           );
-          
+
           $this->db->update('user_details',$data);
           if(!empty($post['password']))
           {
