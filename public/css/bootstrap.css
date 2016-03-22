@@ -1248,6 +1248,7 @@ h6,
 .h6 {
   margin-top: 10px;
   margin-bottom: 10px;
+  color : #FF6600;
 }
 h4 small,
 .h4 small,
@@ -6756,5 +6757,10 @@ button.close {
   .hidden-print {
     display: none !important;
   }
+}
+.error {
+    color: red;
+    font-style: italic;
+    font-weight:normal;
 }
 /*# sourceMappingURL=bootstrap.css.map */

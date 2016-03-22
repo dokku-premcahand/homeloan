@@ -17,6 +17,7 @@ and open the template in the editor.
     <body class="col-lg-12">
         <?php 
             $data['header'] = 'login';
+            $data['subHeader'] = 1;
             $this->load->view('header',$data); 
         ?>
     <section>

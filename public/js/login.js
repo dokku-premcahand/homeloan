@@ -6,8 +6,4 @@ $(document).ready(function(){
     $("#forgotpasswordBtn").click(function(){
         $(".forgotpasswordFrm").submit();
     });
-    
-    $("#newpasswordBtn").click(function(){
-        $(".newpasswordFrm").submit();
-    });
 });

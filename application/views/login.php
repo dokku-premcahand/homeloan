@@ -16,8 +16,10 @@ and open the template in the editor.
     </head>
     <body class="col-lg-12">
         <?php 
-            $data['header'] = 'login';
+            $data['header'] = '';
             $data['active'] = '';
+            $data['subHeader'] = 1;
+            $data['page'] = 'login';
             $this->load->view('header',$data); 
         ?>
     <section>
