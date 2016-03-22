@@ -114,7 +114,7 @@ and open the template in the editor.
                 ?>
             </div>
         </section>
-        <?php //$this->load->view('footer'); ?>
+        <?php $this->load->view('footer'); ?>
     </body>
     <script type="text/javascript"src="<?php echo base_url('public/js/bootstrap.js'); ?>"></script>
 </html>
