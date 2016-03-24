@@ -4,7 +4,7 @@ class Admin extends Base_AdminController {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('AdminModel');
+        $this->load->model('adminmodel');
     }
     
     public function dashboard()
@@ -22,7 +22,7 @@ class Admin extends Base_AdminController {
 
     public function saveLoan()
     {
-        $this->AdminModel->saveLoan();
+        $this->adminmodel->saveLoan();
         $this->session->set_flashdata('successMsg', 'Loan Opportunity successfully added.');
          redirect(base_url('admin/admin/addLoanOpportunity'));
     }
