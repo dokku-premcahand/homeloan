@@ -14,10 +14,10 @@ and open the template in the editor.
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     </head>
     <body class="col-lg-12">
-        <?php 
+        <?php
             $data['header'] = 'logout';
             $data['active'] = 'loan';
-            $this->load->view('header',$data); 
+            $this->load->view('header',$data);
         ?>
         <section>
             <div class="col-lg-offset-1 col-lg-10 ">
@@ -30,6 +30,12 @@ and open the template in the editor.
                 <?php
                     }
                 ?>
+            </div>
+
+            <div class="col-lg-offset-1 col-lg-10">
+                <div class="page-header">
+                    <h4>Loan Opportunity</h4>
+                </div>
             </div>
             <div class="col-lg-offset-1 col-lg-10" style="margin-bottom: 10px;">
                 <form action="<?php echo base_url() ?>" method="POST">
@@ -68,7 +74,9 @@ and open the template in the editor.
                                     <input type="checkbox" name="" value="" id=""/>
                                 </td>
                                 <td>
-                                    <?php echo $data->projectName; ?>
+                                    <a href="<?php echo base_url('user/loanOpportunityDetails/'.$data->id); ?>">
+                                        <?php echo $data->projectName; ?>
+                                    </a>
                                 </td>
                                 <td>
                                     <img style="height:100px;width:100px;" src="<?php echo base_url('uploads/loanOppImg/'.$data->image)?>" alt="image"/>

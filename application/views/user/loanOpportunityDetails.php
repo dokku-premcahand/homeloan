@@ -14,12 +14,16 @@ and open the template in the editor.
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     </head>
     <body class="col-lg-12">
-        <?php 
+        <?php
             $data['header'] = 'logout';
             $data['active'] = 'loanDetails';
-            $this->load->view('header',$data); 
+            $this->load->view('header',$data);
         ?>
         <section>
+            <div class="col-lg-offset-9 col-lg-2">
+                <button type="button" class="btn btn-warning">Calculate ROI</button>
+                <a href="<?php echo base_url('user/loanOpportunity'); ?>"><button type="button" class="btn btn-warning">Back</button></a>
+            </div>
             <div class="col-lg-offset-1 col-lg-10">
                 <div class="page-header">
                     <h4>Loan Details</h4>

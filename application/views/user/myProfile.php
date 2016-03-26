@@ -14,19 +14,24 @@ and open the template in the editor.
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     </head>
     <body class="col-lg-12">
-        <?php 
+        <?php
             $data['header'] = 'logout';
             $data['active'] = 'profile';
-            $this->load->view('header',$data); 
+            $this->load->view('header',$data);
         ?>
     <section>
-        
-        <?php if ($this->session->flashdata('flashSuccess')): ?>
-        <div class="alert alert-success" role="alert" style="margin-top: 140px;text-align: center;"> <?php echo $this->session->flashdata('flashSuccess') ?></div>
-            <?php endif ?>
-            <br /><br />
         <div class="container">
             <div class="col-lg-12">
+                <?php if ($this->session->flashdata('flashSuccess')): ?>
+                    <div class="alert alert-success" role="alert" style="text-align: center;">
+                        <?php echo $this->session->flashdata('flashSuccess') ?>
+                    </div>
+                <?php endif ?>
+                <div class="col-lg-12">
+                    <div class="page-header">
+                        <h4>My Profile</h4>
+                    </div>
+                </div>
                 <form action="<?php echo base_url('user/updateUser'); ?>" name="user_registration" id="user_registration" method="post">
                     <div class="form-group">
                         <div class="col-lg-6">
@@ -70,12 +75,7 @@ and open the template in the editor.
                         </div>
                         <div class="col-lg-6">
                             <label for="exampleInputEmail1">City</label>
-                            <select name="city" id="city" class="required form-control">
-                                <option value="">None</option>
-                                <option value="Mumbai" <?php if($userdata->city == 'Mumbai'){ ?> selected <?php } ?>>Mumbai</option>
-                                <!--<option value="Bangalore">Bangalore</option>-->
-                                <!--<option value="Mangalore">Mangalore</option>-->
-                            </select>
+                            <input type="text" name="city" id="city" class="required form-control" value="<?php echo $userdata->city;?>"/>
                         </div>
                     </div>
                     <div class="form-group">
@@ -147,7 +147,7 @@ and open the template in the editor.
                 </form>
             </div>
         </div><br>
-        
+
     </section>
         <?php $this->load->view('footer'); ?>
     </body>

@@ -1,6 +1,6 @@
 <?php $this->load->view('admin/header'); ?>
 
-<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
     <div class="row">
         <ol class="breadcrumb">
             <li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
@@ -29,9 +29,9 @@
                 ?>
                 <div class="panel-body">
 <!--                    <form role="form" name="addLoan" id="addLoan" method="post" action="<?php echo base_url('admin/saveLoan'); ?>" enctype="multipart/form-data">-->
-                        <div class="col-md-6"> 
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label>Project Name</label> 
+                                <label>Project Name</label>
                                 <input name="projectName" id="projectName" class="form-control" placeholder="Project Name">
                             </div>
                             <div class="form-group">
@@ -43,10 +43,7 @@
                             </div>
                             <div class="form-group">
                                 <label>City</label>
-                                <select class="form-control required" name="city" id="city">
-                                    <option value="">Select City</option>
-                                    <option value="Mumbai">Mumbai</option>
-                                </select>
+                                <input type="text"  class="form-control required" name="city" id="city" placeholder="City"/>
                             </div>
                             <div class="form-group">
                                 <label>LTV</label>
@@ -125,7 +122,7 @@
                                 <label>Security</label>
                                 <input name="security" id="security" class="form-control" placeholder="Security">
                             </div>
-                            
+
                             <div class="form-group">
                                     <label>Image</label>
                                     <input type="file" name="image" id="image" required>
@@ -143,7 +140,7 @@
                 <div class="panel-heading">Documents</div>
                 <div class="panel-body">
                     <!--<form role="form" name="addLoanDocument" id="addLoanDocument" method="post" action="<?php echo base_url('admin/saveLoanDocument'); ?>" enctype="multipart/form-data">-->
-                        <div class="col-md-12 divAdd"> 
+                        <div class="col-md-12 divAdd">
                             <div class="form-group divnew" id="div1">
                                     <div class="col-md-3"><input name="title[]" id="title1" class="form-control" placeholder="Document title"></div>
                                     <div class="col-md-3"><input name="type[]" id="type1" class="form-control" placeholder="Document type"></div>
@@ -155,14 +152,14 @@
                         <div class="form-group" style="text-align:center; margin-top: 20px;">
                         <button type="submit" class="btn btn-primary">Submit Button</button>
                         </div>
-                 
+
                 </div>
             </div>
-        </div> 
+        </div>
         </div>
    </form>
-    
-    <?php $this->load->view('footer'); ?>	
+
+    <?php $this->load->view('footer'); ?>
     <script type="text/javascript" src="<?php echo base_url('public/js/jquery.min.js'); ?>"></script>
     <script src="<?php echo base_url('public/js/bootstrap-datepicker.js'); ?>"></script>
     <script src="<?php echo base_url('public/js/jquery.validate.min.js') ?>"></script>
@@ -172,7 +169,7 @@
             $('#maturityDate').datepicker();
             $('#date').datepicker();
             $('#closingDate').datepicker();
-            
+
             var counter = 2;
         $("#addButton").click(function () {
             $(".divAdd").append('<br></br><div class="form-group divnew" id="div'+counter+'">\n\
@@ -183,7 +180,7 @@
             )
         counter++;
 		})
-                
+
         $(".divAdd").on("click", ".remove", function (e) {
             var counter = $(this).attr('value');
 //            alert(counter);
@@ -192,7 +189,7 @@
 })
 
     </script>
-    
+
     <style>
 /*        .divnew{
             margin-bottom:  50px;

@@ -106,30 +106,30 @@
             $this->db->update('user',$data);
         }
     }
-    
+
     public function getloanOpportunit($offset = 0){
         $data['data'] = $this->db->select('*')->from('loan_opportunity')->limit(limit,$offset)->get()->result();
         $data['totalRows'] = $this->db->select('*')->from('loan_opportunity')->get()->num_rows();
         return $data;
     }
-    
+
     public function loanOpportunityDetails($loanOpportunityDetails){
         $data = $this->db->select('*')->from('loan_opportunity')
                         ->where('id',$loanOpportunityDetails)->get()->row();
         return $data;
     }
-    
+
     public function loanDocumentsList($loanOpportunityDetails){
         $data = $this->db->select('*')->from('loan_opportunity_documents')
                         ->where('lo_id',$loanOpportunityDetails)->get()->result();
         return $data;
     }
-    
+
     public function myLoanList($userId){
         $query = $this->db->select('*')->from('loan_opportunity')->get();
         return $result = $query->result();
     }
-    
+
     public function forceDownload($documentId){
         $this->load->helper('download');
         $documentDetails = $this->db->select('*')->from('loan_opportunity_documents')->where('id',$documentId)->get()->row();
