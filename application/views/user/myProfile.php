@@ -20,7 +20,7 @@ and open the template in the editor.
             $this->load->view('header',$data);
         ?>
     <section>
-        <div class="container">
+        <div class="container" style="height:750px;">
             <div class="col-lg-12">
                 <?php if ($this->session->flashdata('flashSuccess')): ?>
                     <div class="alert alert-success" role="alert" style="text-align: center;">
