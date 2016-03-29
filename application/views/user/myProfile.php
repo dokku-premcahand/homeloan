@@ -20,18 +20,18 @@ and open the template in the editor.
             $this->load->view('header',$data);
         ?>
     <section>
-        <div class="container" style="height:750px;">
-            <div class="col-lg-12">
+        <div style="height:750px;">
                 <?php if ($this->session->flashdata('flashSuccess')): ?>
                     <div class="alert alert-success" role="alert" style="text-align: center;">
                         <?php echo $this->session->flashdata('flashSuccess') ?>
                     </div>
                 <?php endif ?>
-                <div class="col-lg-12">
+                <div class="col-lg-offset-1 col-lg-10">
                     <div class="page-header">
                         <h4>My Profile</h4>
                     </div>
                 </div>
+                <div class="col-lg-offset-1 col-lg-10">
                 <form action="<?php echo base_url('user/updateUser'); ?>" name="user_registration" id="user_registration" method="post">
                     <div class="form-group">
                         <div class="col-lg-6">
@@ -145,10 +145,9 @@ and open the template in the editor.
                         </div>
                     </div>
                 </form>
-            </div>
+                </div>
         </div><br>
-
-    </section>
+    </section><br style="clear:both;"/>
         <?php $this->load->view('footer'); ?>
     </body>
     <script type="text/javascript"src="<?php echo base_url('public/js/bootstrap.js'); ?>"></script>
