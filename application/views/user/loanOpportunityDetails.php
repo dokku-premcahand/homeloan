@@ -21,8 +21,8 @@ and open the template in the editor.
         ?>
         <section>
             <div class="col-lg-offset-9 col-lg-2">
-                <button type="button" class="btn btn-warning">Calculate ROI</button>
-                <a href="<?php echo base_url('user/loanOpportunity'); ?>"><button type="button" class="btn btn-warning">Back</button></a>
+                <!--<button type="button" class="btn btn-warning">Calculate ROI</button>-->
+                <a style="margin-left: 100px;" href="<?php echo base_url('user/loanOpportunity'); ?>"><button type="button" class="btn btn-warning">Back</button></a>
             </div>
             <div class="col-lg-offset-1 col-lg-10">
                 <div class="page-header">
@@ -116,11 +116,11 @@ and open the template in the editor.
                         &nbsp;I want to lend into the opportunity with amount($)
                     </div>
                     <div class="col-lg-12">
-                        <div class="col-lg-3">
+<!--                        <div class="col-lg-3">
                             <select name="" class="form-control">
                                 <option selected="selected">-Please Select-</option>
                             </select>
-                        </div>
+                        </div>-->
                         <div class="col-lg-3">
                             <input type="text" name="" id="" class="form-control"/>
                         </div>
@@ -132,7 +132,7 @@ and open the template in the editor.
             </div>
             <div class="col-lg-offset-1 col-lg-10">
                 <div class="page-header">
-                    <h4>Image Details</h4>
+                    <!--<h4>Image Details</h4>-->
                 </div>
             </div>
 			<div class="col-lg-offset-1 col-lg-10">

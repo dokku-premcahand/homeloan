@@ -34,7 +34,7 @@ and open the template in the editor.
                 </div>
             </div>
             <div class="col-lg-offset-1 col-lg-10" style="margin-bottom: 10px;">
-                <form action="<?php echo base_url(); ?>" method="POST">
+<!--                <form action="<?php echo base_url(); ?>" method="POST">
                     <div class="col-lg-3">
                         <input type="text" name="" id="" value="" class="form-control"/>
                     </div>
@@ -42,7 +42,7 @@ and open the template in the editor.
                         <button type="button" name="" id="" class="btn btn-primary">Search</button>
                         <button type="button" name="" id="" class="btn btn-warning">Reset</button>
                     </div>
-                </form>
+                </form>-->
             </div>
             <div class="col-lg-offset-1 col-lg-10" style="margin-bottom: 10px;">
                 <table class="table table-bordered">
@@ -52,7 +52,7 @@ and open the template in the editor.
                             <th>APR</th>
                             <th>Term</th>
                             <th>Loan Amount</th>
-                            <th>Lend Amount</th>
+                            <!--<th>Lend Amount</th>-->
                             <th>Closing Date</th>
                             <th>Maturity Date</th>
                             <th>Action</th>
@@ -61,11 +61,11 @@ and open the template in the editor.
                     <tbody>
                         <?php foreach ($details as $data): ?>
                         <tr>
-                            <td><?php echo $data->projectName; ?></td>
+                            <td><a href="<?php echo base_url('user/loanOpportunityDetails/'.$data->id); ?>"><?php echo $data->projectName; ?></a></td>
                             <td><?php echo $data->apr; ?></td>
                             <td><?php echo $data->term; ?></td>
                             <td><?php echo $data->loanAmount; ?></td>
-                            <td><?php echo $data->loanAmount; ?></td>
+                            <!--<td><?php // echo $data->loanAmount; ?></td>-->
                             <td><?php echo $data->closingDate; ?></td>
                             <td><?php echo $data->maturityDate; ?></td>
                             <td></td>

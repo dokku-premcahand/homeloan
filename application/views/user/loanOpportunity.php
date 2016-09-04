@@ -38,7 +38,7 @@ and open the template in the editor.
                 </div>
             </div>
             <div class="col-lg-offset-1 col-lg-10" style="margin-bottom: 10px;">
-                <form action="<?php echo base_url() ?>" method="POST">
+<!--                <form action="<?php echo base_url() ?>" method="POST">
                     <div class="col-lg-3" style="padding:0px;">
                         <input type="text" name="search" value="" id="" class="form-control"/>
                     </div>
@@ -46,7 +46,7 @@ and open the template in the editor.
                         <input type="button" class="btn btn-primary" value="Search" id="searchBtn"/>
                         <input type="button" class="btn btn-success" value="Reset" id="resetBtn"/>
                     </div>
-                </form>
+                </form>-->
             </div>
             <div class="col-lg-offset-1 col-lg-10">
                 <table class="table table-bordered">
