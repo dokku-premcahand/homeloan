@@ -7,7 +7,7 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Loan Opportunity Details</title>
+        <title>Opportunity Details</title>
         <link href="<?php echo base_url('public/css/bootstrap.css'); ?>" rel="stylesheet" type="text/css">
         <link href="<?php echo base_url('public/css/custom.css'); ?>" rel="stylesheet" type="text/css">
         <link href="<?php echo base_url('public/css/login.css'); ?>" rel="stylesheet" type="text/css">
@@ -26,7 +26,7 @@ and open the template in the editor.
             </div>
             <div class="col-lg-offset-1 col-lg-10">
                 <div class="page-header">
-                    <h4>Loan Details</h4>
+                    <h4>Opportunity Details</h4>
                 </div>
             </div>
             <div class="col-lg-offset-1 col-lg-10">

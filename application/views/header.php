@@ -1,10 +1,10 @@
-<header class="col-lg-12">
-    <nav class="navbar navbar-inverse home-menu">
+<header class="row">
+    <nav class="navbar navbar-inverse home-menu" style="border-radius: 0px;">
         <div class="container-fluid">
              <!--Brand and toggle get grouped for better mobile display--> 
             <div class="navbar-header">
-                <a class="navbar-brand" href="<?php echo base_url(); ?>">
-                    Triad Realty Ventures
+                <a class="navbar-brand" href="<?php echo base_url(); ?>" style="color: #FFFFFF;">
+                    <b>Triad Realty Ventures</b>
                 </a>
             </div>
             <ul class="nav navbar-nav navbar-right">
@@ -20,7 +20,7 @@
                                 <a href="<?php echo base_url('user/myProfile');?>">MY PROFILE</a>
                             </li>
                             <li class="<?php echo ($active == 'loan') ? 'active' : ''; ?>">
-                                <a href="<?php echo base_url('user/loanOpportunity') ?>">LOAN OPPORTUNITY</a>
+                                <a href="<?php echo base_url('user/loanOpportunity') ?>">OPPORTUNITY</a>
                             </li>
                             <?php
                                 if($active == 'loanDetails'){

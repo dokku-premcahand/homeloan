@@ -32,8 +32,8 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#"><span></span>Admin</a>
-				<ul class="user-menu">
+				<a class="navbar-brand" href="#"><span></span>Admin Panel</a>
+				<!-- <ul class="user-menu">
 					<li class="dropdown pull-right">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
@@ -42,7 +42,7 @@
 							<li><a href="#"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Logout</a></li>
 						</ul>
 					</li>
-				</ul>
+				</ul> -->
 			</div>
 							
 		</div><!-- /.container-fluid -->
@@ -56,7 +56,7 @@
 		</form>
 		<ul class="nav menu">
                         <li class="<?php if($menu == 'dashboard') { ?>active<?php } ?>"><a href="<?php echo base_url('admin/admin/dashboard') ?>"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>
-                        <li class="<?php if($menu == 'addloan') { ?>active<?php } ?>"><a href="<?php echo base_url('admin/admin/addLoanOpportunity') ?>"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Add Loan</a></li>
+                        <li class="<?php if($menu == 'addloan') { ?>active<?php } ?>"><a href="<?php echo base_url('admin/admin/addLoanOpportunity') ?>"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Add Opportunity</a></li>
 			<li role="presentation" class="divider"></li>
 			<li><a href="<?php echo base_url('admin/index/logout') ?>"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg>Logout</a></li>
 		</ul>

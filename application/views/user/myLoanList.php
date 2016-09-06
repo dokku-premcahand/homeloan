@@ -25,8 +25,8 @@ and open the template in the editor.
                     <h4>MY LOAN LIST</h4>
                 </div>
             </div>
-            <div class="col-lg-offset-1 col-lg-10" style="margin-bottom: 10px;">
-                <div class="col-lg-4">
+<!--             <div class="col-lg-offset-1 col-lg-10" style="margin-bottom: 10px;">
+                <div class="col-lg-4" style="padding-left: 0px;">
                     <select class="form-control">
                         <option selected="selected">In Process Loan</option>
                         <option>Processed Loan</option>
@@ -34,7 +34,7 @@ and open the template in the editor.
                 </div>
             </div>
             <div class="col-lg-offset-1 col-lg-10" style="margin-bottom: 10px;">
-<!--                <form action="<?php echo base_url(); ?>" method="POST">
+               <form action="<?php echo base_url(); ?>" method="POST">
                     <div class="col-lg-3">
                         <input type="text" name="" id="" value="" class="form-control"/>
                     </div>

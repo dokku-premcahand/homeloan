@@ -33,12 +33,12 @@
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Password" name="password" id="password" type="password" value="">
                                 </div>
-                                <div class="checkbox">
+                                <!-- <div class="checkbox">
                                     <label>
                                         <input name="remember" type="checkbox" value="Remember Me">Remember Me
                                     </label>
-                                </div>
-                                <input type="submit" name="submit" value="Login" class="btn btn-primary">
+                                </div> -->
+                                <input type="submit" name="submit" value="Login" class="btn btn-primary col-lg-12">
                             </fieldset>
                         </form>
                     </div>
