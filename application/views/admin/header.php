@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+ <!DOCTYPE html> 
 <html>
 <head>
 <meta charset="utf-8">
@@ -33,7 +33,7 @@
 					<span class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="#"><span></span>Admin Panel</a>
-				<!-- <ul class="user-menu">
+<!--				 <ul class="user-menu">
 					<li class="dropdown pull-right">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
@@ -57,6 +57,14 @@
 		<ul class="nav menu">
                         <li class="<?php if($menu == 'dashboard') { ?>active<?php } ?>"><a href="<?php echo base_url('admin/admin/dashboard') ?>"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>
                         <li class="<?php if($menu == 'addloan') { ?>active<?php } ?>"><a href="<?php echo base_url('admin/admin/addLoanOpportunity') ?>"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Add Opportunity</a></li>
+                        <li class="parent ">
+                            <a href="#"><span data-toggle="collapse" href="#sub-item-1"><svg class="glyph stroked chevron-down"><use xlink:href="#stroked-chevron-down"></use></svg></span> Dropdown </a>
+                            <ul class="children collapse" id="sub-item-1">
+                                <li><a class="" href="#"><svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Sub Item 1</a></li>
+                                <li><a class="" href="#"><svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Sub Item 2</a></li>
+                                <li><a class="" href="#"><svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Sub Item 3</a></li>
+                            </ul>
+			</li>
 			<li role="presentation" class="divider"></li>
 			<li><a href="<?php echo base_url('admin/index/logout') ?>"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg>Logout</a></li>
 		</ul>

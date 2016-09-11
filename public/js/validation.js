@@ -18,7 +18,7 @@ $(function () {
             lastname: "required",
             city: "required",
             zipcode: "required",
-            mobile_number: {
+            mobileno: {
                 required: true,
                 number: true,
                 minlength: 10,
@@ -135,4 +135,48 @@ $(function () {
             form.submit();
         }
     })
+    
+        $("#userRegistration").validate({
+        rules: {
+            fname: "required",
+            lname: "required",
+            username: "required",
+            password: {
+                minlength: 5
+            },
+            email: {
+                required: true,
+                email: true
+            },
+            confirm_password: {
+                equalTo: "#password"
+            },
+            mobileno: {
+                required: true,
+                number: true,
+                minlength: 10,
+                maxlength: 10
+            }
+        },
+        messages: {
+            fname: "Please enter your first name",
+            lname: "Please enter your last name",
+            username: "Please enter your username",
+            password: {
+                required: "Please provide a password",
+                minlength: "Your password must be at least 5 characters long"
+            },
+            email: "Please enter a valid email address",
+            mobile_number: {
+                required: "Please enter contact number",
+                minlength: "Your contact number should contain 10 digits",
+                maxlength: "Your contact number should contain 10 digits",
+                number: "Contact numbers should contain only digits"
+            }
+        },
+        submitHandler: function (form) {
+            form.submit();
+        }
+
+    });
 })
