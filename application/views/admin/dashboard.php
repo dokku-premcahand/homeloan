@@ -14,4 +14,4 @@
         </div>
     </div>
 
-<?php $this->load->view('footer'); ?>		
+<?php $this->load->view('admin/footer'); ?>		

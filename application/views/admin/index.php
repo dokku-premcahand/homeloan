@@ -48,5 +48,4 @@
     </body>
     <script type="text/javascript" src="<?php echo base_url('public/js/jquery.min.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo base_url('public/js/jquery.validate.min.js'); ?>"></script>
-    <script type="text/javascript"src="<?php echo base_url('public/js/validation.js'); ?>"></script>
 </html>
