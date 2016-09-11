@@ -159,11 +159,8 @@
         </div>
    </form>
 
-    <?php $this->load->view('footer'); ?>
-    <script type="text/javascript" src="<?php echo base_url('public/js/jquery.min.js'); ?>"></script>
-    <script src="<?php echo base_url('public/js/bootstrap-datepicker.js'); ?>"></script>
+    <?php $this->load->view('admin/footer'); ?>
     <script src="<?php echo base_url('public/js/jquery.validate.min.js') ?>"></script>
-    <script type="text/javascript" src="<?php echo base_url('public/js/validation.js'); ?>"></script>
     <script>
         $(document).ready(function (e) {
             $('#maturityDate').datepicker();
