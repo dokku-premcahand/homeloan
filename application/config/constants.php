@@ -39,3 +39,7 @@ define('limit',                                     '10');
 
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */
+
+define('INACTIVE','1');
+define('FUNDED','2');
+define('MATURED','3');

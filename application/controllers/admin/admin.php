@@ -13,19 +13,6 @@ class Admin extends Base_AdminController {
         $this->load->view('admin/dashboard',$data);
 
     }
-
-    public function addLoanOpportunity()
-    {
-        $data['menu'] = 'addloan';
-        $this->load->view('admin/addLoan',$data);
-    }
-
-    public function saveLoan()
-    {
-        $this->adminmodel->saveLoan();
-        $this->session->set_flashdata('successMsg', 'Loan Opportunity successfully added.');
-         redirect(base_url('admin/admin/addLoanOpportunity'));
-    }
     
     public function addUsers()
     {
@@ -56,5 +43,10 @@ class Admin extends Base_AdminController {
         $json = json_decode(file_get_contents($filename));
         file_put_contents($filename, json_encode($result, 1));
         $this->load->view('admin/listUsers', $data);
+    }
+    
+    public function forceDownload($documentId){
+        $this->load->model('users');
+        $this->users->forceDownload($documentId);
     }
 }

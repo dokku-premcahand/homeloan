@@ -1,0 +1,1 @@
+ALTER TABLE `loan_opportunity` ADD `status` INT NOT NULL DEFAULT '0' ;

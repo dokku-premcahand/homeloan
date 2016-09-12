@@ -4,13 +4,28 @@
     <div class="row">
         <ol class="breadcrumb">
             <li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-            <li class="active">Icons</li>
+            <li class="">
+                <a href=""> 
+                    <?php
+                        if($details->status == FUNDED){
+                    ?>
+                        <a href="<?php echo base_url('admin/loan/listing'); ?>">Loan</a>
+                    <?php
+                        }else{
+                    ?>
+                        <a href="<?php echo base_url('admin/opportunity/listing'); ?>">Opportunity</a>
+                    <?php
+                        }
+                    ?>
+                </a>
+            </li>
+            <li class="active">Edit</li>
         </ol>
     </div><!--/.row-->
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Add Opportunity</h1>
+            <h1 class="page-header">Edit <?php echo ($details->status == FUNDED) ? "Loan" : "Opportunity" ; ?></h1>
         </div>
     </div><!--/.row-->
 <form role="form" name="addLoan" id="addLoan" method="post" action="<?php echo base_url('admin/admin/saveLoan'); ?>" enctype="multipart/form-data">
@@ -122,10 +137,15 @@
                                 <label>Security</label>
                                 <input name="security" id="security" class="form-control" placeholder="Security">
                             </div>
-
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                     <label>Image</label>
                                     <input type="file" name="image" id="image" required>
+                            </div> -->
+                            <div class="form-group">
+                                <label>Status</label><br>
+                                <input name="status" value="1" type="radio"> Inactive
+                                <input name="status" value="2" type="radio"> Funded
+                                <input name="status" value="3" type="radio"> Matured
                             </div>
                         </div>
 <!--                        <button type="submit" class="btn btn-primary">Submit Button</button>
@@ -134,13 +154,13 @@
                 </div>
             </div>
         </div>
-    <div class="row">
+    <!-- <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">Documents</div>
                 <div class="panel-body">
                     <!--<form role="form" name="addLoanDocument" id="addLoanDocument" method="post" action="<?php echo base_url('admin/saveLoanDocument'); ?>" enctype="multipart/form-data">-->
-                        <div class="col-md-12 divAdd">
+                        <!-- <div class="col-md-12 divAdd">
                             <div class="form-group divnew" id="div1">
                                     <div class="col-md-3"><input name="title[]" id="title1" class="form-control" placeholder="Document title"></div>
                                     <div class="col-md-3"><input name="type[]" id="type1" class="form-control" placeholder="Document type"></div>
@@ -156,8 +176,8 @@
                 </div>
             </div>
         </div>
-        </div>
-   </form>
+    </div> -->
+</form>
 
     <?php $this->load->view('admin/footer'); ?>
     <script src="<?php echo base_url('public/js/jquery.validate.min.js') ?>"></script>

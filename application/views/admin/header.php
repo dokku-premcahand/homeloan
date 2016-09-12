@@ -55,16 +55,35 @@
 			</div>
 		</form>
 		<ul class="nav menu">
-			<li class="<?php if($menu == 'dashboard') { ?>active<?php } ?>">
+			<li class="">
 				<a href="<?php echo base_url('admin/admin/dashboard') ?>">
 					<svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> 
 					Dashboard
 				</a>
 			</li>
-			<li class="<?php if($menu == 'addloan') { ?>active<?php } ?>">
-				<a href="<?php echo base_url('admin/admin/addLoanOpportunity') ?>">
-					<svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> 
-					Add Opportunity
+			<li class="parent">
+				<a href="#">
+					<span data-toggle="collapse" href="#sub-item-2"><svg class="glyph stroked chevron-down"><use xlink:href="#stroked-chevron-down"></use></svg></span> Opportunity 
+				</a>
+				<ul class="children collapse" id="sub-item-2">
+					<li>
+						<a class="" href="<?php echo base_url('admin/opportunity/add'); ?>">
+							<svg class="glyph stroked plus sign"><use xlink:href="#stroked-plus-sign"/></svg> 
+							Add
+						</a>
+					</li>
+					<li>
+						<a class="" href="<?php echo base_url('admin/opportunity/listing') ?>">
+							<svg class="glyph stroked table"><use xlink:href="#stroked-table"/></svg> 
+							List
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="">
+				<a href="<?php echo base_url('admin/loan/listing') ?>">
+					<svg class="glyph stroked table"><use xlink:href="#stroked-table"/></svg> 
+					Loan
 				</a>
 			</li>
 			<li class="parent ">

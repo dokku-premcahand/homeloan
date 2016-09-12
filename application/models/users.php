@@ -107,8 +107,8 @@
         }
     }
 
-    public function getloanOpportunit($offset = 0){
-        $data['data'] = $this->db->select('*')->from('loan_opportunity')->limit(limit,$offset)->get()->result();
+    public function getloanOpportunit($offset = 0,$limit = 10){
+        $data['data'] = $this->db->select('*')->from('loan_opportunity')->limit($limit,$offset)->get()->result();
         $data['totalRows'] = $this->db->select('*')->from('loan_opportunity')->get()->num_rows();
         return $data;
     }
@@ -136,5 +136,10 @@
         $data = file_get_contents(base_url('uploads/loanOppDocument/'.$documentDetails->lo_id.'/'.$documentDetails->file));
         $name = $documentDetails->file;
         force_download($name, $data);
+    }
+
+    public function getAllUsersList(){
+        $userDetails = $this->db->select('group_concat(emailid) AS email')->from('user')->get()->row_array();
+        return $userDetails;
     }
   }
