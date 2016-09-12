@@ -17,8 +17,17 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">Advanced Table</div>
+                            <?php
+                if ($this->session->flashdata('successMsg')) {
+                    ?>
+                <div class="alert alert-success" role="alert" style="text-align: center;">
+                        <?php echo $this->session->flashdata('successMsg'); ?>
+                    </div>
+                    <?php
+                }
+            ?>
                 <div class="panel-body">
-                    <table data-toggle="table" data-url="<?php echo base_url('public/tables/data1.json') ?>"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
+                    <table id="userTable" data-toggle="table" data-url="<?php echo base_url('public/tables/data1.json') ?>"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
                         <thead>
                         <tr>
                             <th data-field="state" data-checkbox="true" >ID</th>
@@ -27,15 +36,7 @@
                             <th data-field="lastname"  data-sortable="true">Last Name</th>
                             <th data-field="email" data-sortable="true">Email-Id</th>
                             <th data-field="mobile_number" data-sortable="true">Mobile No</th>
-                            <th data-field="action" data-sortable="true">Test</th>
-                            
-                          
-
-                            <th data-field="."<svg class='glyph stroked pencil'><use xlink:href='#stroked-pencil'/></svg>Action</th>
-<!--                                <svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"/></svg>-->
-                                
-
-
+                            <th data-filed='action' data-align='center' data-formatter='actionFormatter' data-events='actionEvents'>Action</th>
                         </tr>
                         </thead>
                     </table>
@@ -45,38 +46,41 @@
     </div>
     
     <link href="<?php echo base_url('public/css/bootstrap-table.css') ?>" rel="stylesheet">
-   <script src="<?php echo base_url('public/js/jquery.min.js') ?>"></script>
-   <script src="<?php echo base_url('public/js/bootstrap.min.js') ?>"></script>
     <script src="<?php echo base_url('public/js/bootstrap-table.js') ?>"></script>
-<script>
-    $(function () {
-        $('#hover, #striped, #condensed').click(function () {
-            var classes = 'table';
-
-            if ($('#hover').prop('checked')) {
-                classes += ' table-hover';
-            }
-            if ($('#condensed').prop('checked')) {
-                classes += ' table-condensed';
-            }
-            $('#table-style').bootstrapTable('destroy')
-                .bootstrapTable({
-                    classes: classes,
-                    striped: $('#striped').prop('checked')
-                });
-        });
-    });
-
-    function rowStyle(row, index) {
-        var classes = ['active', 'success', 'info', 'warning', 'danger'];
-
-        if (index % 2 === 0 && index / 2 < classes.length) {
-            return {
-                classes: classes[index / 2]
-            };
-        }
-        return {};
+    <script>
+        var $table = $('#userTable');
+    function actionFormatter(value) {
+        return [
+            '<a class="update" href="javascript:" title="Update User"><i class="glyphicon glyphicon-edit"></i></a> &nbsp;&nbsp;&nbsp;',
+            '<a class="remove" href="javascript:" title="Delete Item"><i class="glyphicon glyphicon-remove-circle"></i></a> &nbsp;&nbsp;&nbsp;',
+            '<a class="change_password" href="javascript:" title="Change Password"><i class="glyphicon glyphicon-edit"></i></a>',
+        ].join('');
     }
-</script>
-
-   
+    
+        window.actionEvents = {
+        'click .update': function (e, value, row) {
+            console.log(row);
+            window.location="<?php echo base_url('admin/user/viewUser'); ?>"+"/"+row.id;
+        },
+        'click .remove': function (e, value, row) {
+//            alert($BASE_URL);
+            if (confirm('Are you sure to delete this item?')) {
+                $.ajax({
+                    url: '<?php echo base_url("admin/user/deleteUser"); ?>' + '/' + row.id,
+                    type: 'delete',
+                    success: function (data) {
+                        alert(data);
+                        $table.bootstrapTable('refresh');
+//                        showAlert('Delete item successful!', 'success');
+                    },
+                    error: function () {
+                        showAlert('Delete item error!', 'danger');
+                    }
+                })
+            }
+        },
+        'click .change_password': function (e, value, row) {
+            window.location="<?php echo base_url('admin/user/changePassword'); ?>"+"/"+row.id;
+        },
+    };
+    </script>

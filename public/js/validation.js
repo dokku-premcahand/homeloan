@@ -179,4 +179,27 @@ $(function () {
         }
 
     });
+    
+    $("#changePassword").validate({
+        rules: {
+            password: {
+                required : true,
+                minlength: 5
+            },
+            confirm_password: {
+                equalTo: "#password"
+            }
+        },
+        messages: {
+            password: {
+                required: "Please provide a password",
+                minlength: "Your password must be at least 5 characters long"
+            }
+        },
+        submitHandler: function (form) {
+            form.submit();
+        }
+
+    })
+    
 })

@@ -160,5 +160,61 @@ class AdminModel extends CI_Model {
         return  $result = $query->result();
 //        echo "<pre>";print_r($result);exit;
     }
+    
+    public function getUserById($id)
+    {
+        $query = $this->db->select('*')
+                ->from('user_details')
+                ->order_by('id', 'desc')
+                ->get();
+        return  $result = $query->row();
+    }
+    
+    public function updateUser() {
+        $postdata = $this->input->post();
+        $data = array(
+            'emailId' => $postdata['email']
+        );
+        
+        $this->db->where('id', $postdata['id'])
+                ->update('user', $data);
+        
+        $data1 = array(
+            'firstname' => $postdata['fname'],
+            'lastname'  => $postdata['lname'],
+            'email'  => $postdata['email'],
+            'mobile_number' => $postdata['mobileno'],
+            'username' => $postdata['username']       
+        );
+                
+        $this->db->where('user_id', $postdata['id'])
+                ->update('user_details', $data1);
+        
+    }
+    
+    public function updateUserPassword() {
+        $postdata = $this->input->post();
+        $data = array(
+            'password' => md5($postdata['password'])
+        );
+        
+        $this->db->where('id', $postdata['id'])
+                ->update('user', $data);
+        
+    }
+    
+    public function deleteUser($id) {
+        $this->db->where('user_id', $id)
+                    ->delete('user_details');
+        $result = $this->db->where('id', $id)
+                ->delete('user');
+        if($result)
+        {
+            return TRUE;
+        }
+        else{
+            return FALSE;
+        }
+    }
 
 }
