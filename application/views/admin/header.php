@@ -11,6 +11,8 @@
 <link href="<?php echo base_url('public/css/datepicker3.css') ?>" rel="stylesheet">
 
 <!--Icons-->
+<script src="<?php echo base_url('public/js/jquery.min.js') ?>"></script>
+<script src="<?php echo base_url('public/js/bootstrap.min.js') ?>"></script>
 <script src="<?php echo base_url('public/js/lumino.glyphs.js') ?>"></script>
 
 
@@ -87,24 +89,13 @@
 				</a>
 			</li>
 			<li class="parent ">
-				<a href="#">
-					<span data-toggle="collapse" href="#sub-item-1"><svg class="glyph stroked chevron-down"><use xlink:href="#stroked-chevron-down"></use></svg></span> Dropdown 
-				</a>
+                            <a href="#"><span data-toggle="collapse" href="#sub-item-1"><svg class="glyph stroked chevron-down"><use xlink:href="#stroked-chevron-down"></use></svg></span> User </a>
 				<ul class="children collapse" id="sub-item-1">
 					<li>
-						<a class="" href="#">
-							<svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Sub Item 1
-						</a>
+                                            <a class="" href="<?php echo base_url('admin/user') ?>"><svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> List Users</a>
 					</li>
 					<li>
-						<a class="" href="#">
-							<svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Sub Item 2
-						</a>
-					</li>
-					<li>
-						<a class="" href="#">
-							<svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Sub Item 3
-						</a>
+                                            <a class="" href="<?php echo base_url('admin/addUsers') ?>"><svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Add Users</a>
 					</li>
 				</ul>
 			</li>
