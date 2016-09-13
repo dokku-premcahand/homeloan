@@ -86,7 +86,9 @@ class Opportunity_model extends CI_Model {
                 'state' => $postdata['state'],
                 'city' => $postdata['city'],
                 'image' => $genertaed_file_name,
-                'status' => $postdata['status']
+                'inactive' => (!empty($postdata['inactive'])) ? $postdata['inactive'] : 0 ,
+                'funded' => (!empty($postdata['funded'])) ? $postdata['funded'] : 0 ,
+                'completed' => (!empty($postdata['completed'])) ? $postdata['completed'] : 0 
             );
             $this->db->insert('loan_opportunity', $data1);
             $insert_id = $this->db->insert_id();
@@ -148,6 +150,55 @@ class Opportunity_model extends CI_Model {
                 echo "File Not uploading";exit;
             }
         }
+    }
+
+    public function update(){
+        $postdata = $this->input->post();
+        $data = array(
+                'projectName' => $postdata['projectName'],
+                'ltv' => $postdata['ltv'],
+                'apr' => $postdata['apr'],
+                'maturityDate' => $postdata['maturityDate'],
+                'penalty' => $postdata['penalty'],
+                'agent' => $postdata['agent'],
+                'exitTerm' => $postdata['exitTerm'],
+                'purpose' => $postdata['purpose'],
+                'location' => $postdata['location'],
+                'address' => $postdata['address'],
+                'loanAmount' => $postdata['loanAmount'],
+                'term' => $postdata['term'],
+                'grossApr' => $postdata['grossApr'],
+                'date' => $postdata['date'],
+                'closingDate' => $postdata['closingDate'],
+                'agentUrl' => $postdata['agentUrl'],
+                'security' => $postdata['security'],
+                'state' => $postdata['state'],
+                'city' => $postdata['city'],
+                'image' => $postdata['image'],
+                'inactive' => (!empty($postdata['inactive'])) ? $postdata['inactive'] : 0 ,
+                'funded' => (!empty($postdata['funded'])) ? $postdata['funded'] : 0 ,
+                'completed' => (!empty($postdata['completed'])) ? $postdata['completed'] : 0 
+            );
+        $responce = $this->db->update('loan_opportunity',$data,array('id'=>$postdata['loanOpportunityId']));
+        return true;
+    }
+
+    public function addUserOpportunityLendAmount(){
+        $postdata = $this->input->post();
+        $data = array(
+                'opportunity_id'    => $postdata['opportunityId'],
+                'user_id'           => $this->session->userdata('id'),
+                'amount'            => $postdata['lendAmount']
+            );
+        $this->db->insert('users_opportunity_investment', $data);
+        return true;
+    }
+
+    public function getUserOpportunityInvestment($loanOpportunityId){
+        $sql = "SELECT * FROM users_opportunity_investment WHERE opportunity_id = ".$loanOpportunityId."
+                AND user_id = ".$this->session->userdata('id');
+        $result = $this->db->query($sql)->row_array();
+        return $result;
     }
 }
 ?>

@@ -111,23 +111,21 @@ and open the template in the editor.
                     </div>
                 </div>
                 <div class="col-lg-12">
-                    <div class="col-lg-12" style="margin-bottom: 5px;">
-                        <input type="checkbox" name="" value="" id=""/>
-                        &nbsp;I want to lend into the opportunity with amount($)
-                    </div>
-                    <div class="col-lg-12">
-<!--                        <div class="col-lg-3">
-                            <select name="" class="form-control">
-                                <option selected="selected">-Please Select-</option>
-                            </select>
-                        </div>-->
-                        <div class="col-lg-3">
-                            <input type="text" name="" id="" class="form-control"/>
+                    <form method="post" action="<?php echo base_url(''); ?>">
+                        <div class="col-lg-12" style="margin-bottom: 5px;">
+                            <div class="col-lg-5">
+                                <input type="checkbox" name="lendckh" value="1" <?php echo (!empty($investmentDetails)) ? "checked disabled" : "" ; ?>/>
+                                &nbsp;I want to lend into the opportunity with amount($)
+                                <input type="hidden" name="opportunityId" value="<?php echo $details->id; ?>"/>
+                            </div>
+                            <div class="col-lg-4">
+                                <input type="number" maxlength="5" name="lendAmount" id="lendAmount" class="form-control" value="<?php echo (!empty($investmentDetails)) ? $investmentDetails['amount'] : "" ; ?>" <?php echo (!empty($investmentDetails)) ? "disabled" : "" ; ?>/>
+                            </div>
+                            <div class="col-lg-3">
+                                <button name="" type="button" class="btn btn-primary" <?php echo (!empty($investmentDetails)) ? "disabled" : "" ; ?>>Submit</button>
+                            </div>
                         </div>
-                        <div class="col-lg-3">
-                            <button name="" type="button" class="btn btn-primary">Submit</button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
             <div class="col-lg-offset-1 col-lg-10">

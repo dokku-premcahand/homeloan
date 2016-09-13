@@ -7,7 +7,7 @@ class Loan_model extends CI_Model {
     }
 
     public function getLoanListing(){
-    	$sql = "SELECT SQL_CALC_FOUND_ROWS * FROM loan_opportunity WHERE status = ".FUNDED;
+    	$sql = "SELECT SQL_CALC_FOUND_ROWS * FROM loan_opportunity WHERE funded = 1";
     	$result = $this->db->query($sql)->result_array();
 
     	$countSql = "SELECT FOUND_ROWS() AS totalCount";

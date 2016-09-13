@@ -108,7 +108,9 @@
     }
 
     public function getloanOpportunit($offset = 0,$limit = 10){
-        $data['data'] = $this->db->select('*')->from('loan_opportunity')->limit($limit,$offset)->get()->result();
+        $data['data'] = $this->db->select('*')->from('loan_opportunity')
+                        ->where('inactive <> 1 AND funded <> 1 AND completed <> 1')
+                        ->limit($limit,$offset)->get()->result();
         $data['totalRows'] = $this->db->select('*')->from('loan_opportunity')->get()->num_rows();
         return $data;
     }
@@ -126,8 +128,11 @@
     }
 
     public function myLoanList($userId){
-        $query = $this->db->select('*')->from('loan_opportunity')->get();
-        return $result = $query->result();
+        $sql = "SELECT * FROM loan_opportunity lop 
+                WHERE (SELECT count(uopi.id) FROM users_opportunity_investment uopi 
+                      WHERE uopi.opportunity_id = lop.id AND uopi.user_id = ".$this->session->userdata('id')."
+                      ) > 0";
+        return $result = $this->db->query($sql)->result();
     }
 
     public function forceDownload($documentId){

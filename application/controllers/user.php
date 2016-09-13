@@ -32,19 +32,16 @@ class User extends Base_Controller {
         header('Location:' . base_url('user/myProfile'));
     }
     
-    public function saveLoan()
-    {
-        echo "yes";exit;
-    }
-    
     public function loanOpportunity($offset=0) {
         $this->load->model('users');
         $data = $this->users->getloanOpportunit($offset);
+        
         $this->load->library('pagination');
         $config['base_url'] = base_url('user/loanOpportunity');
         $config['total_rows'] = $data['totalRows'];
         $config['per_page'] = limit; 
         $this->pagination->initialize($config);
+
         $result['details'] = $data['data']; 
         $result['pagination'] = $this->pagination->create_links();
         $this->load->view('user/loanOpportunity',$result);
@@ -53,8 +50,10 @@ class User extends Base_Controller {
     public function loanOpportunityDetails($loanOpportunityId=0){
         if($loanOpportunityId != 0 && is_numeric($loanOpportunityId)){
             $this->load->model('users');
+            $this->load->model('opportunity_model');
             $data['details'] = $this->users->loanOpportunityDetails($loanOpportunityId);
             $data['documents'] = $this->users->loanDocumentsList($loanOpportunityId);
+            $data['investmentDetails'] = $this->opportunity_model->getUserOpportunityInvestment($loanOpportunityId);
             $this->load->view('user/loanOpportunityDetails',$data);
         }else{
             $this->session->set_flashdata('errorMsg','Invalid loan opportunity id.');
@@ -76,5 +75,13 @@ class User extends Base_Controller {
     public function forceDownload($documentId){
         $this->load->model('users');
         $this->users->forceDownload($documentId);
+    }
+
+    public function addUserOpportunityLendAmount(){
+        if($this->input->post()){
+            $this->load->model('opportunity_model');
+            $this->opportunity_model->addUserOpportunityLendAmount();
+        }
+        redirect('Location:'.base_url('user/loanOpportunityDetails/'.$this->input->post('opportunityId')));
     }
 }

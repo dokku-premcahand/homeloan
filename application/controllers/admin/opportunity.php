@@ -67,7 +67,11 @@ class Opportunity extends Base_AdminController {
             $this->emailForNewOpportunity();
             $this->session->set_flashdata('successMsg', 'Opportunity successfully added.');
         }
-        redirect(base_url('admin/opportunity/listing'));
+        if($this->input->post('funded') == 1 || $this->input->post('completed') == 1){
+            redirect(base_url('admin/loan/listing'));
+        }else{
+            redirect(base_url('admin/opportunity/listing'));
+        }
     }
 }
 ?>

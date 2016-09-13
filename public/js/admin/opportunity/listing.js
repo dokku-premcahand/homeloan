@@ -7,18 +7,33 @@ $(document).ready(function(){
 	    pageSize: 15,
 	    pageList: [15, 25, 50, 100, 200],
 	    sidePagination : 'server',
-	    rowStyle: rowStyleTable,
 	    columns: [{
 		        field: 'projectName',
 		        title: 'Project Name ',
 		        align: 'left',
 		        valign: 'middle',
 		        formatter: projectLink
-	        },{
-		        field: 'image',
-		        title: 'Image',
+	        },
+	        {
+		        field: 'inactive',
+		        title: 'Inactive',
 		        align: 'left',
-		        valign: 'middle'
+		        valign: 'middle',
+		        formatter: inactiveFormatter
+	        },
+	        {
+		        field: 'funded',
+		        title: 'Funded',
+		        align: 'left',
+		        valign: 'middle',
+		        formatter: fundedFormatter
+	        },
+	        {
+		        field: 'completed',
+		        title: 'Completed',
+		        align: 'left',
+		        valign: 'middle',
+		        formatter: completedFormatter
 	        },
 	        {
 		        field: 'state',
@@ -37,31 +52,6 @@ $(document).ready(function(){
 		        title: 'Loan Amount',
 		        align: 'left',
 		        valign: 'middle'
-	        },{
-		        field: 'ltv',
-		        title: 'LTV',
-		        align: 'left',
-		        valign: 'middle'
-	        },{
-		        field: 'apr',
-		        title: 'APR',
-		        align: 'left',
-		        valign: 'middle'
-	        },
-	        {
-		        field: 'term',
-		        title: 'Term',
-		        align: 'center',
-		        valign: 'middle',
-		        clickToSelect: false
-	        },
-	        {
-		        field: 'status',
-		        title: 'Status',
-		        align: 'center',
-		        valign: 'middle',
-		        clickToSelect: false,
-		        formatter: statusFormatter
 	        },
 	        {
 		        field: 'id',
@@ -74,20 +64,6 @@ $(document).ready(function(){
 		]
     });
 
-	function rowStyleTable(row, index) {
-		var classes = ['highlight'];
-		var rcstatus = row.status;
-		var role = parseInt($("input[name=userRoleId]").val());
-		if(typeof rcstatus != "undefined"){
-			if(rcstatus != 1 && (role == 2 || role == 1)){
-				return {
-					classes: classes[0]
-				};
-			}
-		}
-		return {};
-	}
-
 	function projectLink(value,row) {
 		var link = "<a href=\"/admin/opportunity/view/"+row.id+"\">"+value+"</a>";
 		return link;
@@ -99,25 +75,27 @@ $(document).ready(function(){
 		return link;
 	}
 
-	function statusFormatter(value,row){
-		var valueStr = 'NA';
-		console.log(value);
+	function inactiveFormatter(value,row){
+		var valueStr = '';
 		if(value == 1){
-			valueStr = 'Inactive';
-		}else if(value == 2){
-			valueStr = 'Funded';
-		}else if(value == 3){
-			valueStr = 'Matured';
+			valueStr = '<svg class="glyph stroked checkmark" style=\'height:20px;width:20px;color:#0dda15;\'><use xlink:href="#stroked-checkmark"/></svg>';
 		}
 		return valueStr;
 	}
 
-	function isActiveCompanyFormatter(value) {
-		var status;
-		if(value ==1)
-			status = "<span class=\"label label-success\">Active</span>";
-		else
-			status = "<span class=\"label label-danger\">Disabled</span>";
-		return status;
+	function fundedFormatter(value,row){
+		var valueStr = '';
+		if(value == 1){
+			valueStr = '<svg class="glyph stroked checkmark" style=\'height:20px;width:20px;color:#0dda15;\'><use xlink:href="#stroked-checkmark"/></svg>';
+		}
+		return valueStr;
+	}
+
+	function completedFormatter(value,row){
+		var valueStr = '';
+		if(value == 1){
+			valueStr = '<svg class="glyph stroked checkmark" style=\'height:20px;width:20px;color:#0dda15;\'><use xlink:href="#stroked-checkmark"/></svg>';
+		}
+		return valueStr;
 	}
 });

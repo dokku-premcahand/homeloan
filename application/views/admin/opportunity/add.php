@@ -80,9 +80,9 @@
                             </div>
                             <div class="form-group">
                                 <label>Status</label><br>
-                                <input name="status" value="1" type="radio"> Inactive
-                                <input name="status" value="2" type="radio"> Funded
-                                <input name="status" value="3" type="radio"> Matured
+                                <input name="inactive" value="1" type="checkbox"> Inactive
+                                <input name="funded" value="1" type="checkbox"> Funded
+                                <input name="completed" value="1" type="checkbox"> Matured
                             </div>
                         </div>
                         <div class="col-md-6">

@@ -52,7 +52,7 @@ and open the template in the editor.
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th></th>
+                            <!-- <th></th> -->
                             <th>Project Name</th>
                             <th>Image</th>
                             <th>State</th>
@@ -70,9 +70,7 @@ and open the template in the editor.
                             foreach($details as $data){
                         ?>
                             <tr class="valign">
-                                <td>
-                                    <input type="checkbox" name="" value="" id=""/>
-                                </td>
+                                <!-- <td><input type="checkbox" name="" value="" id=""/></td> -->
                                 <td>
                                     <a href="<?php echo base_url('user/loanOpportunityDetails/'.$data->id); ?>">
                                         <?php echo $data->projectName; ?>
