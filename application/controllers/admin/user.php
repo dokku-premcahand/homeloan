@@ -4,13 +4,13 @@ class User extends Base_AdminController {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('adminmodel');
+        $this->load->model('admin_model');
     }
     
     public function index()
     {
         $data['menu'] = 'listUser';
-        $result = $this->adminmodel->getAllUsers();
+        $result = $this->admin_model->getAllUsers();
         $filename = __DIR__.('\..\..\..\public\tables\data1.json');
         $json = json_decode(file_get_contents($filename));
         file_put_contents($filename, json_encode($result, 1));
@@ -25,7 +25,7 @@ class User extends Base_AdminController {
     
     public function saveUser()
     {
-        $this->adminmodel->saveUser();
+        $this->admin_model->saveUser();
         $this->session->set_flashdata('successMsg', 'User successfully registered.');
         redirect(base_url('admin/user/addUsers'));
     }
@@ -34,7 +34,7 @@ class User extends Base_AdminController {
     {
         $data['menu'] = 'addloan';
         $data['id'] = $id;
-        $result = $this->adminmodel->getUserById($id);
+        $result = $this->admin_model->getUserById($id);
 //        echo "<pre>";print_r($result);exit;
         $data['result'] = $result;
         $this->load->view('admin/viewUser', $data);
@@ -42,7 +42,7 @@ class User extends Base_AdminController {
     
     public function updateUser()
     {
-        $this->adminmodel->updateUser();
+        $this->admin_model->updateUser();
         $this->session->set_flashdata('successMsg', 'User successfully updated.');
         redirect(base_url('admin/user'));
     }
@@ -56,13 +56,13 @@ class User extends Base_AdminController {
     
     public function updateUserPassword()
     {
-        $this->adminmodel->updateUserPassword();
+        $this->admin_model->updateUserPassword();
         $this->session->set_flashdata('successMsg', 'User Password successfully updated.');
         redirect(base_url('admin/user'));
     }
     
     public function deleteUser($id) {
-        $result = $this->adminmodel->deleteUser($id);
+        $result = $this->admin_model->deleteUser($id);
         echo $result;exit;
     }
 }

@@ -4,7 +4,7 @@ class Admin extends Base_AdminController {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('adminmodel');
+        $this->load->model('admin_model');
     }
     
     public function dashboard()
