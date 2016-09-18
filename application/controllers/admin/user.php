@@ -27,7 +27,7 @@ class User extends Base_AdminController {
     {
         $this->admin_model->saveUser();
         $this->session->set_flashdata('successMsg', 'User successfully registered.');
-        redirect(base_url('admin/user/addUsers'));
+        redirect(base_url('admin/user/index'));
     }
        
     public function viewUser($id)

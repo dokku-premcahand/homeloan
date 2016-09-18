@@ -97,10 +97,8 @@ class Admin_model extends CI_Model {
     }
     
     public function deleteUser($id) {
-        $this->db->where('user_id', $id)
-                    ->delete('user_details');
-        $result = $this->db->where('id', $id)
-                ->delete('user');
+        $this->db->where('user_id', $id)->delete('user_details');
+        $result = $this->db->where('id', $id)->delete('user');
         if($result)
         {
             return TRUE;

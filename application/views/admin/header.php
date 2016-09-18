@@ -95,7 +95,7 @@
                                             <a class="" href="<?php echo base_url('admin/user') ?>"><svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> List Users</a>
 					</li>
 					<li>
-                                            <a class="" href="<?php echo base_url('admin/addUsers') ?>"><svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Add Users</a>
+                                            <a class="" href="<?php echo base_url('admin/user/addUsers') ?>"><svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Add Users</a>
 					</li>
 				</ul>
 			</li>

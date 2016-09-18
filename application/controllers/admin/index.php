@@ -4,7 +4,7 @@ class Index extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('AdminModel');
+        $this->load->model('admin_model');
     }
 
     public function index()
@@ -15,7 +15,7 @@ class Index extends CI_Controller {
     public function authenticate()
     {
         $postdata = $this->input->post();
-        $result = $this->AdminModel->checkAdmin($postdata);
+        $result = $this->admin_model->checkAdmin($postdata);
 
         if($result['count'] != 1){
              $this->session->set_flashdata('errorMsg', 'Invalid username or password.');

@@ -60,18 +60,16 @@
         window.actionEvents = {
         'click .update': function (e, value, row) {
             console.log(row);
-            window.location="<?php echo base_url('admin/user/viewUser'); ?>"+"/"+row.id;
+            window.location="<?php echo base_url('admin/user/viewUser'); ?>"+"/"+row.user_id;
         },
         'click .remove': function (e, value, row) {
 //            alert($BASE_URL);
             if (confirm('Are you sure to delete this item?')) {
                 $.ajax({
-                    url: '<?php echo base_url("admin/user/deleteUser"); ?>' + '/' + row.id,
+                    url: '<?php echo base_url("admin/user/deleteUser"); ?>' + '/' + row.user_id,
                     type: 'delete',
                     success: function (data) {
-                        alert(data);
-                        $table.bootstrapTable('refresh');
-//                        showAlert('Delete item successful!', 'success');
+                        location.reload();
                     },
                     error: function () {
                         showAlert('Delete item error!', 'danger');
@@ -80,7 +78,7 @@
             }
         },
         'click .change_password': function (e, value, row) {
-            window.location="<?php echo base_url('admin/user/changePassword'); ?>"+"/"+row.id;
+            window.location="<?php echo base_url('admin/user/changePassword'); ?>"+"/"+row.user_id;
         },
     };
     </script>
